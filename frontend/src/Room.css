@@ -1,0 +1,95 @@
+.about-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    padding: 20px;
+}
+
+.about-body {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    padding: 0 20px; 
+    width: 100%;
+    max-width: 1200px;
+}
+  
+.box {
+    width: auto; 
+    height: auto; 
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 25px;
+    margin-bottom: 20px; 
+}
+
+.box h3{
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 25px;
+    margin-top: 15px;
+}
+  
+.price {
+    display: flex;
+    align-items: baseline; /* Menyelaraskan elemen-elemen dengan baseline teks */
+    margin-left: 25px;
+    margin-bottom: 10px;
+}
+  
+.price .amount {
+    font-size: 2em; /* Ukuran besar untuk "159$" */
+    color: orange; /* Warna oranye untuk "159$" */
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif ;
+}
+  
+.price .pernight {
+    font-size: 1em; /* Ukuran kecil untuk "/Pernight" */
+    margin-left: 2px; /* Sedikit jarak antara "159$" dan "/Pernight" */
+    color: black; /* Warna hitam untuk "/Pernight" */
+}
+  
+.deskripsi {
+    display: flex;
+    align-items: baseline; /* Menyelaraskan elemen-elemen dengan baseline teks */
+    margin-left: 25px;
+}
+  
+.deskripsi .kanan {
+    width: 40%;
+    font-size: 17px;
+}
+  
+.deskripsi .kiri {
+    width: 40%;
+    font-size: 17px;
+
+}
+
+.more-detail-button {
+    font-family: sans-serif;
+    background: none; /* Menghilangkan latar belakang default tombol */
+    border: none; /* Menghilangkan border default tombol */
+    color: black; /* Warna teks tombol */
+    font-size: 1em; /* Ukuran font tombol */
+    cursor: pointer; /* Mengubah kursor saat hover tombol */
+    position: relative; /* Mengatur posisi untuk garis bawah */
+    margin-top: auto; /* Menjaga tombol di bagian bawah kotak */
+    margin-left: 20px;
+    margin-bottom: 25px;
+  }
+  
+  .more-detail-button::after {
+    content: ''; /* Membuat elemen semu */
+    display: block;
+    width: 90%; /* Lebar garis bawah sama dengan lebar teks */
+    height: 2px; /* Tinggi garis bawah */
+    background: orange; /* Warna garis bawah */
+    position: absolute; /* Posisi absolut relatif ke tombol */
+    bottom: -2px; /* Posisi garis bawah di bawah teks */
+    left: 5;
+  }
+  

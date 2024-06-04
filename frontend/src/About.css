@@ -1,0 +1,35 @@
+.container.about-section {
+    display: flex;
+    max-width: 1200px;
+    padding-bottom: 50px;
+}
+  
+.about-text {
+    width: 40%;
+    padding-right: 20px; 
+}
+  
+.about-image {
+    width: 60%;
+}
+  
+  .about-image img {
+    width: 1000px; 
+    height: auto; 
+  }
+  
+.read-more:hover {
+    background-color: red;
+    color: white;
+    border: 1px solid #ccc;
+}
+ 
+.read-more {
+    padding: 10px 40px;
+    background-color: black;
+    color: white;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+}
