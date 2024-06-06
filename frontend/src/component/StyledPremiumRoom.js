@@ -19,34 +19,42 @@ export const AboutHome = styled.p`
     font-size: 18px;
 `;
 
-export const AboutRoom = styled.p`
+export const AboutRoom = styled.div`
     display: flex;
-    align-items: center;
-    justify-content: left;
+    align-items: flex-start;
+    justify-content: space-between;
     background-color: white;
     padding-bottom: 15px;
-`;
-
-// Styling for the image container
-export const AboutImg = styled.div`
-    width: 60%;
-    box-sizing: border-box;
-    text-align: left;
-    margin-right: 35px;
-    img {
-        width: 810px;
-        height: 510px
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
     }
 `;
 
-// Styling for the description container
+export const AboutImg = styled.div`
+    width: 40%;
+    box-sizing: border-box;
+    text-align: left;
+    margin-right: 35px;
+    @media (max-width: 768px) {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
+`;
+
 export const AboutPesan = styled.div`
     padding-left: 35px;
     text-align: left;
-    width: 40%;
+    width: 50%;
     box-sizing: border-box;
-    h1 {
-        font-size: 20px;
+    @media (max-width: 768px) {
+        width: 100%;
+        padding-left: 0;
     }
 `;
 
@@ -60,30 +68,30 @@ export const AboutDeskripsi = styled.div`
     font-family: "Arial";
 `;
 
-export const AboutBody = styled.p`
+export const AboutBody = styled.div`
     text-align: center;
     font-size: 20px;
-    background-color: putih;
+    background-color: white;
     padding: 0;
     margin-bottom: -15.5px;
     padding-right: 50px;
     padding-left: 50px;
     padding-top: 10px;
     margin-top: 50px;
-
+    @media (max-width: 768px) {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
     h1 {
         font-size: 75px;
     }
-
     p {
         font-size: 18px;
-        padding-right: 225px;
-        padding-left: 225px;
     }
 `;
 
 export const Input = styled.input`
-    width: 60%;
+    width: 50%; /* Atur lebar sesuai kebutuhan */
     padding: 10px;
     margin: 5px 0 20px 0;
     border: 1px solid #ccc;
@@ -92,7 +100,7 @@ export const Input = styled.input`
 `;
 
 export const Select = styled.select`
-    width: 60%;
+    width: 50%; /* Atur lebar sesuai kebutuhan */
     padding: 10px;
     margin: 5px 0 20px 0;
     border: 1px solid #ccc;
@@ -102,14 +110,16 @@ export const Select = styled.select`
 
 
 export const Button = styled.button`
-    padding: 10px 40px;
+display: block; /* Membuat button berada di baris baru */
+    padding: 10px;
     background-color: #b86614;
     color: white;
     border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
-    width: 290px;
+    width: 50%; /* Atur lebar sesuai kebutuhan */
     font-size: 16px;
+    box-sizing: border-box;
     &:hover {
         background-color: white;
         color: #b86614;
@@ -120,6 +130,7 @@ export const Button = styled.button`
 export const Price = styled.h2`
     font-size: 24px;
     color: black; /* warna lainnya disesuaikan */
+    display: block; /* Menjadikan elemen harga berada di baris baru */
 `;
 
 export const DollarSign = styled.span`
@@ -162,29 +173,37 @@ export const Deskripsi = styled.div`
 export const Kamar = styled.div`
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content: flex-start; /* Mengatur justifikasi ke kiri */
     background-color: white;
     padding-bottom: 15px;
-    width: 60%;
+    width: auto; /* Mengatur lebar container sesuai dengan konten di dalamnya */
+    max-width: 60%; /* Batasi lebar maksimum container */
     text-align: left;
 `;
 
 export const Judul = styled.h3`
-    width: 70%;
+    width: auto; /* Menyesuaikan lebar sesuai konten */
     align-items: left;
     font-family: 'Times New Roman', serif;
-    font-size: 30px;
+    font-size: 40px;
     color: #333;
+    font-weight: bold;
+    white-space: nowrap; /* Mencegah judul berbaris */
+    overflow: hidden; /* Menyembunyikan teks yang melebihi lebar */
+    text-overflow: ellipsis; /* Menampilkan elipsis (...) untuk teks yang melebihi lebar */
+    flex-shrink: 0; /* Menambahkan properti untuk memastikan judul tidak terpotong */
 `;
 
 export const Bintang = styled.div`
-    width: 20%;
-    align-items: center;
+    width: auto; /* Menyesuaikan lebar sesuai konten */
+    align-items: flex-start;
+    margin-left: auto; /* Menggeser bintang ke kanan */
+    margin-right: 10px; /* Menambahkan jarak di sebelah kanan bintang */
+    flex-shrink: 0; /* Menambahkan properti untuk memastikan bintang tidak terpotong */
 `;
 
-
 export const ButtonBook = styled.button`
-    width: 20%;
+    width: 40%; /* Menyesuaikan lebar tombol */
     padding: 10px 20px;
     background-color: #b86614;
     color: white;
@@ -192,6 +211,7 @@ export const ButtonBook = styled.button`
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    margin-left: auto; /* Menggeser tombol ke kanan */
     &:hover {
         background-color: white;
         color: #b86614;
