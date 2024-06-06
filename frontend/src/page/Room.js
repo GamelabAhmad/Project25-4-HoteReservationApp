@@ -15,171 +15,57 @@ import Kamar6 from '../kamar/kamar6.jpg';
 import '../Room.css';
 
 const Room = () => {
+  const rooms = [
+    { id: 1, name: 'Premium King Room', image: Kamar1, price: '159$', size: '30 ft', capacity: 'Max person 3', bed: 'King Beds', services: 'Wifi, Television, Bathroom' },
+    { id: 2, name: 'Deluxe Room', image: Kamar2, price: '159$', size: '30 ft', capacity: 'Max person 5', bed: 'King Beds', services: 'Wifi, Television, Bathroom' },
+    { id: 3, name: 'Luxury Room', image: Kamar3, price: '159$', size: '30 ft', capacity: 'Max person 1', bed: 'King Beds', services: 'Wifi, Television, Bathroom' },
+    { id: 4, name: 'Double Room', image: Kamar4, price: '159$', size: '30 ft', capacity: 'Max person 1', bed: 'King Beds', services: 'Wifi, Television, Bathroom' },
+    { id: 5, name: 'Room With View', image: Kamar5, price: '159$', size: '30 ft', capacity: 'Max person 1', bed: 'King Beds', services: 'Wifi, Television, Bathroom' },
+    { id: 6, name: 'Room With View', image: Kamar6, price: '159$', size: '30 ft', capacity: 'Max person 1', bed: 'King Beds', services: 'Wifi, Television, Bathroom' }
+  ];
+
   return (
-    <body>
-        <AboutDiv>
-            <AboutStyle>Our Room</AboutStyle>
-            <AboutHome>
-                Rooms 
-            </AboutHome>
-        </AboutDiv>
-        <div className="about-container">
-            <div className="about-body">
-                <div className="box">
-                    <AboutImg>
-                        <img src={Kamar1} alt="Logo Hotel" />
-                    </AboutImg>
-                    <h3>Premium King Room</h3>
-                    <span className="price">
-                        <span className="amount">159$</span>
-                        <span className="pernight">/Pernight</span>
-                    </span>
-                    <span className="deskripsi">
-                        <span className="kiri">
-                            <p>Size :</p>
-                            <p>Capacity :</p>
-                            <p>Bed :</p>
-                            <p>Services :</p>
-                        </span>
-                        <span className="kanan">
-                            <p>30 ft</p>
-                            <p>Max persion 3</p>
-                            <p>King Beds</p>
-                            <p>Wifi, Television, Bathroom</p>
-                        </span>
-                    </span>
-                    <button className="more-detail-button">
-                        <b><Link to="/detail-kamar" style={{ textDecoration: 'none', color: 'black' }}>More Details</Link></b>
-                    </button>
-                </div>
-                <div className="box">
-                    <AboutImg>
-                        <img src={Kamar2} alt="Logo Hotel" />
-                    </AboutImg>
-                    <h3>Deluxe Room</h3>
-                    <span className="price">
-                        <span className="amount">159$</span>
-                        <span className="pernight">/Pernight</span>
-                    </span>
-                    <span className="deskripsi">
-                        <span className="kiri">
-                            <p>Size :</p>
-                            <p>Capacity :</p>
-                            <p>Bed :</p>
-                            <p>Services :</p>
-                        </span>
-                        <span className="kanan">
-                            <p>30 ft</p>
-                            <p>Max persion 5</p>
-                            <p>King Beds</p>
-                            <p>Wifi, Television, Bathroom</p>
-                        </span>
-                    </span>
-                    <button className="more-detail-button"><b>More Details</b></button>
-                </div>
-                <div className="box">
-                    <AboutImg>
-                        <img src={Kamar3} alt="Logo Hotel" />
-                    </AboutImg>
-                    <h3>Luxury Room</h3>
-                    <span className="price">
-                        <span className="amount">159$</span>
-                        <span className="pernight">/Pernight</span>
-                    </span>
-                    <span className="deskripsi">
-                        <span className="kiri">
-                            <p>Size :</p>
-                            <p>Capacity :</p>
-                            <p>Bed :</p>
-                            <p>Services :</p>
-                        </span>
-                        <span className="kanan">
-                            <p>30 ft</p>
-                            <p>Max persion 1</p>
-                            <p>King Beds</p>
-                            <p>Wifi, Television, Bathroom</p>
-                        </span>
-                    </span>
-                    <button className="more-detail-button"><b>More Details</b></button>
-                </div>
-                <div className="box">
-                    <AboutImg>
-                        <img src={Kamar4} alt="Logo Hotel" />
-                    </AboutImg>
-                    <h3>Double Room</h3>
-                    <span className="price">
-                        <span className="amount">159$</span>
-                        <span className="pernight">/Pernight</span>
-                    </span>
-                    <span className="deskripsi">
-                        <span className="kiri">
-                            <p>Size :</p>
-                            <p>Capacity :</p>
-                            <p>Bed :</p>
-                            <p>Services :</p>
-                        </span>
-                        <span className="kanan">
-                            <p>30 ft</p>
-                            <p>Max persion 1</p>
-                            <p>King Beds</p>
-                            <p>Wifi, Television, Bathroom</p>
-                        </span>
-                    </span>
-                    <button className="more-detail-button"><b>More Details</b></button>
-                </div>
-                <div className="box">
-                    <AboutImg>
-                        <img src={Kamar5} alt="Logo Hotel" />
-                    </AboutImg>
-                    <h3>Room With View</h3>
-                    <span className="price">
-                        <span className="amount">159$</span>
-                        <span className="pernight">/Pernight</span>
-                    </span>
-                    <span className="deskripsi">
-                        <span className="kiri">
-                            <p>Size :</p>
-                            <p>Capacity :</p>
-                            <p>Bed :</p>
-                            <p>Services :</p>
-                        </span>
-                        <span className="kanan">
-                            <p>30 ft</p>
-                            <p>Max persion 1</p>
-                            <p>King Beds</p>
-                            <p>Wifi, Television, Bathroom</p>
-                        </span>
-                    </span>
-                    <button className="more-detail-button"><b>More Details</b></button>
-                </div>
-                <div className="box">
-                    <AboutImg>
-                        <img src={Kamar6} alt="Logo Hotel" />
-                    </AboutImg>
-                    <h3>Room With View</h3>
-                    <span className="price">
-                        <span className="amount">159$</span>
-                        <span className="pernight">/Pernight</span>
-                    </span>
-                    <span className="deskripsi">
-                        <span className="kiri">
-                            <p>Size :</p>
-                            <p>Capacity :</p>
-                            <p>Bed :</p>
-                            <p>Services :</p>
-                        </span>
-                        <span className="kanan">
-                            <p>30 ft</p>
-                            <p>Max persion 1</p>
-                            <p>King Beds</p>
-                            <p>Wifi, Television, Bathroom</p>
-                        </span>
-                    </span>
-                    <button className="more-detail-button"><b>More Details</b></button>
-                </div>
+    <div>
+      <AboutDiv>
+        <AboutStyle>Our Room</AboutStyle>
+        <AboutHome>
+          Rooms 
+        </AboutHome>
+      </AboutDiv>
+      <div className="about-container">
+        <div className="about-body">
+          {rooms.map(room => (
+            <div className="box" key={room.id}>
+              <AboutImg>
+                <img src={room.image} alt="Logo Hotel" />
+              </AboutImg>
+              <h3>{room.name}</h3>
+              <span className="price">
+                <span className="amount">{room.price}</span>
+                <span className="pernight">/Pernight</span>
+              </span>
+              <span className="deskripsi">
+                <span className="kiri">
+                  <p>Size :</p>
+                  <p>Capacity :</p>
+                  <p>Bed :</p>
+                  <p>Services :</p>
+                </span>
+                <span className="kanan">
+                  <p>{room.size}</p>
+                  <p>{room.capacity}</p>
+                  <p>{room.bed}</p>
+                  <p>{room.services}</p>
+                </span>
+              </span>
+              <button className="more-detail-button">
+                <b><Link to={`/detail-kamar/${room.id}`} style={{ textDecoration: 'none', color: 'black' }}>More Details</Link></b>
+              </button>
             </div>
+          ))}
         </div>
-    </body>
+      </div>
+    </div>
   );
 };
 

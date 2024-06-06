@@ -28,7 +28,7 @@ const App = () => {
         <Route path="/tentang" element={<Tentang />} />
         <Route path="/ruang" element={<Room />} />
         <Route path="/kontak" element={<Kontak />} />
-        <Route path="/detail-kamar" element={<DetailRoom />} />
+        <Route path="/detail-kamar/:roomId" element={<DetailRoom />} /> 
         <Route path="/masuk" element={<Login />} />
         <Route path="/daftar" element={<Daftar />} />
       </Routes>
