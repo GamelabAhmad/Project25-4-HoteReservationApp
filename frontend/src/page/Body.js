@@ -85,10 +85,10 @@ const RightArrow = styled(ArrowButton)`
 const SliderContainer = styled.div`
   width: 80%;
   margin: 0 auto;
-  p {
-    font-size: 25px;
-  };
   h3 {
+    font-size: 50px;
+  };
+  p {
     font-size: 35px;
   };
 `;
@@ -246,11 +246,11 @@ const Body = () => {
                 <div>
                   <h3>{review.name}</h3>
                   <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <img src={review.images} alt={`Kamar ${index + 1}`} height={'250px'} width={'350px'}/> 
+                    <img src={review.images} alt={`Kamar ${index + 1}`} height={'400px'} width={'650px'}/> 
                   </div><br></br>
                   <div>
                     {[...Array(5)].map((_, i) => (
-                      <FaStar key={i} color="#ffc107" style={{ fontSize: '24px' }} />
+                      <FaStar key={i} color="#ffc107" style={{ fontSize: '35px' }} />
                     ))}
                   </div>
                   <p>{review.text}</p>

@@ -13,7 +13,7 @@ export const ReviewContainer = styled.div`
 `;
 
 export const ReviewTitle = styled.h2`
-  font-size: 55px;
+  font-size: 70px;
   margin-bottom: 20px;
 `;
 
@@ -142,7 +142,6 @@ export const AboutImg = styled.div`
         height: 400px
     }
 `;
-
 
 // Styling for the description container
 export const AboutStyle = styled.div`
