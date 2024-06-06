@@ -44,7 +44,7 @@ const Header = () => {
           <LiStyle><Link to="/" style={{ textDecoration: 'none' }}><AStyle>Beranda</AStyle></Link></LiStyle>
           <LiStyle><Link to="/ruang" style={{ textDecoration: 'none' }}><AStyle>Kamar</AStyle></Link></LiStyle>
           <LiStyle><Link to="/tentang" style={{ textDecoration: 'none' }}><AStyle>Tentang</AStyle></Link></LiStyle>
-          <LiStyle><AStyle href="#">Pesanan</AStyle></LiStyle>
+          <LiStyle><Link to="/pesanan" style={{ textDecoration: 'none' }}><AStyle>Pesanan</AStyle></Link></LiStyle>
           <LiStyle><Link to="/kontak" style={{ textDecoration: 'none' }}><AStyle>Kontak</AStyle></Link></LiStyle>
         </UlStyle>
       </LeftContainer>

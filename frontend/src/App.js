@@ -10,6 +10,7 @@ import Room from './page/Room';
 import Login from './page/Login';
 import Daftar from './page/Daftar';
 import DetailRoom from './page/DetailRoom';
+import Pesanan from './page/Pesanan';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './css/bootstrap.min.css';
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/tentang" element={<Tentang />} />
         <Route path="/ruang" element={<Room />} />
         <Route path="/kontak" element={<Kontak />} />
+        <Route path="/pesanan" element={<Pesanan />} />
         <Route path="/detail-kamar/:roomId" element={<DetailRoom />} /> 
         <Route path="/masuk" element={<Login />} />
         <Route path="/daftar" element={<Daftar />} />

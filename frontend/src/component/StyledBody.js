@@ -2,6 +2,42 @@
 import styled from 'styled-components';
 // import BgBenner from './img/wallpaperpantai.jpg';
 
+export const ReviewContainer = styled.div`
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  background-color: white;
+  border-top: 1px solid #ddd;
+`;
+
+export const ReviewTitle = styled.h2`
+  font-size: 55px;
+  margin-bottom: 20px;
+`;
+
+export const ReviewCard = styled.div`
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 20px;
+  max-width: 600px;
+  width: 100%;
+  text-align: left;
+`;
+
+export const ReviewerName = styled.p`
+  font-weight: bold;
+  margin-bottom: 10px;
+`;
+
+export const ReviewText = styled.p`
+  font-size: 16px;
+  color: #555;
+`;
+
 export const ButtonStyle = styled.button`
     padding: 10px 40px;
     border-radius: 0.3rem;

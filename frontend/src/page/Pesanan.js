@@ -1,30 +1,92 @@
-// Daftar.js
-import React from 'react';
-import Icon from '../img/googele.png'; 
-import { DaftarContainer, GoogleDaftarButton, Divider, Form, Input, Button, PolicyText } from '../component/StyledDaftar';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { 
+    AboutStyle,
+    AboutDiv,
+    AboutImg
+  } from '../component/StyledPesanan';
+  import '../css/pesanan.css';
+  import Kamar1 from '../kamar/kamar1.jpg'; 
 
-const Daftar = () => {
-  return (
-    <DaftarContainer>
-      <h1>Daftar</h1>
-      <GoogleDaftarButton>
-        <img src={Icon} alt="Google Logo" style={{ width: '20px', marginRight: '10px' }} />
-        Masuk dengan google
-      </GoogleDaftarButton>
-      <Divider>atau</Divider>
-      <Form>
-        <Input type="email" placeholder="Email" />
-        <Input type="password" placeholder="Password" />
-        <Input type="password" placeholder="Konfirmasi Password" />
-        <Button type="submit">Daftar</Button>
-      </Form>
-      <Link to="/masuk" style={{ color: '#0D99FF' }}>Masuk</Link>
-      <PolicyText>
-        Dengan mengklik daftar, Anda menyetujui <a href="#">Ketentuan Layanan</a> dan <a href="#">Kebijakan Privasi</a> kami
-      </PolicyText>
-    </DaftarContainer>
-  );
-};
+  const Pemesanan = () => {
+    const [view, setView] = useState('pesanan'); // State to manage the view
 
-export default Daftar;
+    return (
+    <body>
+        <AboutDiv>
+            <AboutStyle>Pesanan</AboutStyle>
+        </AboutDiv>
+        <div className="navigasi">
+        <button className="btn" onClick={() => setView('pesanan')}>Lihat Pesanan</button>
+        <button className="btn" onClick={() => setView('riwayat')}>Riwayat Pemesanan</button>
+      </div>
+
+      {view === 'pesanan' && (
+        <div className="about-container">
+          <div className="about-body">
+            <div className="order-box">
+              <div className="image-container">
+                <AboutImg>
+                  <img src={Kamar1} alt="Logo Hotel" />
+                </AboutImg>
+              </div>
+              <div className="details-container">
+                <div className="room-name">
+                  <h1>Premium King Room</h1>
+                  <p>Nama : Andhita Firmansyah Putra</p>
+                  <p>No. Hp : 0895856485135</p>
+                </div>
+                <div className="booking-id">
+                  <p>ID Booking: 123456</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="about-body">
+            <div className="order-box">
+              <div className="image-container">
+                <AboutImg>
+                  <img src={Kamar1} alt="Logo Hotel" />
+                </AboutImg>
+              </div>
+              <div className="details-container">
+                <div className="room-name">
+                  <h1>Premium King Room</h1>
+                  <p>Nama : Andhita Firmansyah Putra</p>
+                  <p>No. Hp : 0895856485135</p>
+                </div>
+                <div className="booking-id">
+                  <p>ID Booking: 123456</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {view === 'riwayat' && (
+        <div className="about-container">
+          <div className="about-body">
+            <div className="order-box">
+              <div className="image-container">
+                <AboutImg>
+                  <img src={Kamar1} alt="Logo Hotel" />
+                </AboutImg>
+              </div>
+              <div className="details-container">
+                <div className="room-name">
+                  <h1>Premium King Room</h1>
+                  <p>Tamu : 3 orang</p>
+                  <p>Harga : 250.000/malam</p>
+                </div>
+                <div className="booking-id">
+                  <p>ID Booking: 123456</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </body>
+    );
+}
+export default Pemesanan;

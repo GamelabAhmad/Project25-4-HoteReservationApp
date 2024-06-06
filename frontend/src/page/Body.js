@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { FaStar } from 'react-icons/fa';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'; // Import icons from react-icons
 import Kamar1 from '../kamar/kamar1.jpg'; 
 import Kamar2 from '../kamar/kamar2.jpg'; 
 import Kamar3 from '../kamar/kamar3.jpg'; 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from 'react-slick';
+import { keyframes } from 'styled-components';
 
 import { 
   AboutBody,
@@ -14,7 +19,9 @@ import {
   Header,
   Deskripsi,
   ButtonOrange,
-  AboutStyleWhite
+  AboutStyleWhite, 
+  ReviewContainer,
+  ReviewTitle,
 } from "../component/StyledBody";
 
 // Array of image URLs
@@ -75,6 +82,30 @@ const RightArrow = styled(ArrowButton)`
   right: 35px; /* Position right arrow button */
 `;
 
+const SliderContainer = styled.div`
+  width: 80%;
+  margin: 0 auto;
+  p {
+    font-size: 25px;
+  };
+  h3 {
+    font-size: 35px;
+  };
+`;
+
+const Slide = styled.div`
+  outline: none;
+  opacity: 0; /* Mulai dengan opacity 0 */
+  animation: ${keyframes`
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  `} 0.5s forwards; /* Terapkan animasi fade-in */
+`;
+
 const Body = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -103,6 +134,42 @@ const Body = () => {
     setCurrentImageIndex(prevIndex =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
+  };
+
+  const reviews = [
+    {
+      name: 'John Doe',
+      text: 'Great service and friendly staff. Had an amazing stay!',
+      images: [Kamar1],
+    },
+    {
+      name: 'Jane Smith',
+      text: 'The rooms were clean and comfortable. Highly recommend this hotel.',
+      images: [Kamar2],
+    },
+    {
+      name: 'Sam Wilson',
+      text: 'Excellent location and beautiful views. Will come back again.',
+      images: [Kamar3],
+    },
+    {
+      name: 'Jon Kemit',
+      text: 'Excellent location and beautiful views. Will come back again.',
+      images: [Kamar2],
+    },
+  ];
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <FaArrowRight />,
+    prevArrow: <FaArrowLeft />,
+    fade: true,
+    autoplay: true, // Tambahkan autoplay
+    autoplaySpeed: 3000 // Atur kecepatan autoplay (dalam milidetik)
   };
 
   return (
@@ -170,7 +237,29 @@ const Body = () => {
           </AboutStyle>
         </AboutStyleWhite>
       </AboutBody>
-      
+      <ReviewContainer>
+        <ReviewTitle>Customer Reviews</ReviewTitle>
+        <SliderContainer>
+          <Slider {...settings}>
+            {reviews.map((review, index) => (
+              <Slide key={index}>
+                <div>
+                  <h3>{review.name}</h3>
+                  <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <img src={review.images} alt={`Kamar ${index + 1}`} height={'250px'} width={'350px'}/> 
+                  </div><br></br>
+                  <div>
+                    {[...Array(5)].map((_, i) => (
+                      <FaStar key={i} color="#ffc107" style={{ fontSize: '24px' }} />
+                    ))}
+                  </div>
+                  <p>{review.text}</p>
+                </div>
+              </Slide>
+            ))}
+          </Slider>
+        </SliderContainer>
+      </ReviewContainer>
     </body>
   );
 };
