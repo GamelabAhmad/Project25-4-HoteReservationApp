@@ -1,28 +1,10 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import {
-  AboutStyle,
-  AboutHome,
-  AboutDiv,
-  AboutRoom,
-  AboutImg,
-  AboutBody,
-  AboutPesan,
-  AboutJudul,
-  Input,
-  Select,
-  Button,
-  Judul,
-  ButtonBook,
-  Price,
-  DollarSign,
-  Bintang,
-  Kamar,
-  AboutDeskripsi
-} from '../component/StyledPremiumRoom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import RatingStars from './RatingStars';
+import { AboutDiv, AboutStyle, AboutHome, AboutBody, AboutRoom, AboutImg, AboutPesan, AboutJudul, Input, Select, Button, Judul, ButtonBook, Price, DollarSign, Kamar, AboutDeskripsi, RoomInfoWrapper, RoomInfo, RoomDescription } from '../component/StyledPremiumRoom'; // Menambahkan import untuk komponen styled
+
 import Kamar1 from '../kamar/kamar1.jpg';
 import Kamar2 from '../kamar/kamar2.jpg';
 import Kamar3 from '../kamar/kamar3.jpg';
@@ -31,12 +13,12 @@ import Kamar5 from '../kamar/kamar5.jpg';
 import Kamar6 from '../kamar/kamar6.jpg';
 
 const rooms = [
-  { id: 1, name: 'Premium King Room', image: Kamar1, price: '199$', size: '30 ft', capacity: 'Max person 3', bed: 'King Beds', services: 'Wifi, Television, Bathroom', description: 'MotorBeranda or Trailer that is the question for you...' },
-  { id: 2, name: 'Deluxe Room', image: Kamar2, price: '159$', size: '30 ft', capacity: 'Max person 5', bed: 'King Beds', services: 'Wifi, Television, Bathroom', description: 'Deluxe room with all the amenities...' },
-  { id: 3, name: 'Luxury Room', image: Kamar3, price: '179$', size: '30 ft', capacity: 'Max person 1', bed: 'King Beds', services: 'Wifi, Television, Bathroom', description: 'Luxury room for a comfortable stay...' },
-  { id: 4, name: 'Double Room', image: Kamar4, price: '139$', size: '30 ft', capacity: 'Max person 1', bed: 'King Beds', services: 'Wifi, Television, Bathroom', description: 'Double room perfect for solo travelers...' },
-  { id: 5, name: 'Room With View', image: Kamar5, price: '169$', size: '30 ft', capacity: 'Max person 1', bed: 'King Beds', services: 'Wifi, Television, Bathroom', description: 'Enjoy the best views from our rooms...' },
-  { id: 6, name: 'Room With View', image: Kamar6, price: '169$', size: '30 ft', capacity: 'Max person 1', bed: 'King Beds', services: 'Wifi, Television, Bathroom', description: 'Scenic views right from your window...' }
+  { id: 1, name: 'Premium King Room', image: Kamar1, price: 'IDR 2.300.000', size: '30 ft', capacity: 'Max person 3', bed: 'King Beds', services: 'Wifi, Televisi, Kamar Mandi' },
+  { id: 2, name: 'Deluxe Room', image: Kamar2, price: 'IDR 2.500.000', size: '30 ft', capacity: 'Max person 5', bed: 'King Beds', services: 'Wifi, Televisi, Kamar Mandi' },
+  { id: 3, name: 'Luxury Room', image: Kamar3, price: 'IDR 2.000.000', size: '30 ft', capacity: 'Max person 1', bed: 'King Beds', services: 'Wifi, Televisi, Kamar Mandi' },
+  { id: 4, name: 'Double Room', image: Kamar4, price: 'IDR 1.800.000', size: '30 ft', capacity: 'Max person 1', bed: 'King Beds', services: 'Wifi, Televisi, Kamar Mandi' },
+  { id: 5, name: 'Room With View', image: Kamar5, price: 'IDR 2.200.000', size: '30 ft', capacity: 'Max person 1', bed: 'King Beds', services: 'Wifi, Televisi, Kamar Mandi' },
+  { id: 6, name: 'Room With View', image: Kamar6, price: 'IDR 2.200.000', size: '30 ft', capacity: 'Max person 1', bed: 'King Beds', services: 'Wifi, Televisi, Kamar Mandi' }
 ];
 
 const DetailRoom = () => {
@@ -57,6 +39,22 @@ const DetailRoom = () => {
             <AboutRoom>
               <AboutImg>
                 <img src={room.image} alt={room.name} />
+                <Kamar>
+                  <div>
+                    <Judul>{room.name}</Judul>
+                    <Price><DollarSign>{room.price}</DollarSign> /PER NIGHT</Price>
+                    <RoomInfo>
+                        <p>Size: {room.size}</p>
+                        <p>Capacity: {room.capacity}</p>
+                        <p>Bed: {room.bed}</p>
+                        <p>Service: {room.services}</p>
+                    </RoomInfo>
+                  </div>
+                  <div>
+                      <RatingStars rating={5} />
+                      <ButtonBook>Booking Now</ButtonBook>
+                  </div>
+              </Kamar>
               </AboutImg>
               <AboutPesan>
                 <AboutJudul>Reservasi Anda</AboutJudul>
@@ -82,22 +80,26 @@ const DetailRoom = () => {
             </AboutRoom>
             <AboutRoom>
               <Kamar>
-                <Judul>{room.name}</Judul>
-                <Bintang>
-                  <RatingStars rating={5} /> {/* Rating bintang, ganti angka sesuai rating */}
-                </Bintang>
-                <ButtonBook>Booking Now</ButtonBook>
+                  <div>
+                    <Judul>{room.name}</Judul>
+                    <Price><DollarSign>{room.price}</DollarSign> /PER NIGHT</Price>
+                    <RoomInfo>
+                        <p>Size: {room.size}</p>
+                        <p>Capacity: {room.capacity}</p>
+                        <p>Bed: {room.bed}</p>
+                        <p>Service: {room.services}</p>
+                    </RoomInfo>
+                  </div>
+                  <div>
+                      <RatingStars rating={5} />
+                      <ButtonBook>Booking Now</ButtonBook>
+                  </div>
               </Kamar>
-              <Price><DollarSign>{room.price}</DollarSign> /PER NIGHT</Price>
-              <div>
-                <p>Size: {room.size}</p>
-                <p>Capacity: {room.capacity}</p>
-                <p>Bed: {room.bed}</p>
-                <p>Service: {room.services}</p>
-              </div>
-              <div>
-                <p>{room.description}</p>
-              </div>
+              <RoomInfoWrapper>
+                <RoomDescription>
+                    <p>{room.description}</p>
+                </RoomDescription>
+              </RoomInfoWrapper>
             </AboutRoom>
           </AboutBody>
         </div>

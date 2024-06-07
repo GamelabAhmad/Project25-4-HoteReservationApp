@@ -1,10 +1,5 @@
 import React from 'react';
-import { 
-  AboutStyle,
-  AboutHome,
-  AboutDiv,
-  AboutImg
-} from '../component/StyledRoom';
+import { AboutDiv, AboutHome, AboutImg, Price } from '../component/StyledRoom'; // Mengimpor komponen styled yang telah diperbarui
 import { Link } from 'react-router-dom';
 import Kamar1 from '../kamar/kamar1.jpg'; 
 import Kamar2 from '../kamar/kamar2.jpg'; 
@@ -27,7 +22,7 @@ const Room = () => {
   return (
     <div>
       <AboutDiv>
-        <AboutStyle>Kamar Kami</AboutStyle>
+        <h1>Kamar Kami</h1>
         <AboutHome>Kamar</AboutHome>
       </AboutDiv>
       <div className="about-container">
@@ -38,9 +33,9 @@ const Room = () => {
                 <img src={room.image} alt="Gambar Kamar" />
               </AboutImg>
               <h3><b>{room.name}</b></h3>
-              <span className="price">
-                <span className="amount">{room.price}</span>
-                <span className="pernight">/Per Malam</span>
+              <span className="Price" style={{ display: 'flex', alignItems: 'center' }}>
+                <Price className="amount" style={{ marginRight: '5px' }}>{room.price}</Price>
+                <span className="pernight" style={{ fontSize: '20px', color: 'black' }}>/Malam</span>
               </span>
               <div className="deskripsi">
                 <div className="kiri">

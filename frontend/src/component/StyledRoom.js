@@ -225,9 +225,10 @@ export const Button = styled.button`
 `;
 
 export const Price = styled.h2`
-    font-size: 24px; /* Mengatur font size default */
-    color: black;
-
+    font-size: 20px; /* Mengatur font size default */
+    color:  #FFA500;
+    font-weight: bold;
+    margin-right: 5px; /* Menambahkan jarak ke kanan */
     @media (max-width: 768px) {
         font-size: 20px; /* Mengatur font size pada layar dengan lebar maksimum 768px */
     }
@@ -236,6 +237,7 @@ export const Price = styled.h2`
         font-size: 18px; /* Mengatur font size pada layar dengan lebar maksimum 480px */
     }
 `;
+
 
 export const DollarSign = styled.span`
     color: orange;
