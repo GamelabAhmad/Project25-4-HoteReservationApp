@@ -15,7 +15,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './css/bootstrap.min.css';
 import './css/animate.css';
-
+import axios from 'axios';
 const App = () => {
   const location = useLocation();
   const noHeaderFooterPaths = ['/masuk', '/daftar'];

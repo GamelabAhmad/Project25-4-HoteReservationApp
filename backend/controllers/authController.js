@@ -18,15 +18,12 @@ exports.register = async (req, res) => {
       password: hashedPassword,
     });
     const payload = { user: { user_id: user.user_id } };
-    jwt.sign(
+    const token = jwt.sign(
       payload,
       process.env.JWT_SECRET,
-      { expiresIn: "1h" },
-      (err, token) => {
-        if (err) throw err;
-        res.json({ token });
-      }
+      { expiresIn: "1h" }
     );
+    res.json({ token });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server error");
@@ -46,15 +43,12 @@ exports.login = async (req, res) => {
       return res.status(400).json({ msg: "Invalid Credentials" });
     }
     const payload = { user: { user_id: user.user_id } };
-    jwt.sign(
+    const token = jwt.sign(
       payload,
       process.env.JWT_SECRET,
-      { expiresIn: "1h" },
-      (err, token) => {
-        if (err) throw err;
-        res.json({ token });
-      }
+      { expiresIn: "1h" }
     );
+    res.json({ token });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server error");
