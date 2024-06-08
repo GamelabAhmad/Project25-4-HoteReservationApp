@@ -1,6 +1,9 @@
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 // Register User
 exports.register = async (req, res) => {
@@ -18,11 +21,9 @@ exports.register = async (req, res) => {
       password: hashedPassword,
     });
     const payload = { user: { user_id: user.user_id } };
-    const token = jwt.sign(
-      payload,
-      process.env.JWT_SECRET,
-      { expiresIn: "1h" }
-    );
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
     res.json({ token });
   } catch (err) {
     console.error(err.message);
@@ -43,11 +44,9 @@ exports.login = async (req, res) => {
       return res.status(400).json({ msg: "Invalid Credentials" });
     }
     const payload = { user: { user_id: user.user_id } };
-    const token = jwt.sign(
-      payload,
-      process.env.JWT_SECRET,
-      { expiresIn: "1h" }
-    );
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
     res.json({ token });
   } catch (err) {
     console.error(err.message);
