@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { FaStar } from 'react-icons/fa';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'; // Import icons from react-icons
+import styled, { keyframes } from 'styled-components';
+import { FaStar, FaArrowLeft, FaArrowRight } from 'react-icons/fa'; // Import icons from react-icons
 import Kamar1 from '../kamar/kamar1.jpg'; 
 import Kamar2 from '../kamar/kamar2.jpg'; 
 import Kamar3 from '../kamar/kamar3.jpg'; 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
-import { keyframes } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { 
   AboutBody,
   AboutImg,
   AboutStyle,
   Price,
-  DollarSign,
   Header,
   Deskripsi,
   ButtonOrange,
@@ -32,7 +30,7 @@ const images = [
 ];
 
 // Interval for changing images (milliseconds)
-const interval = 15000; // Change image every 5 seconds
+const interval = 15000; // Change image every 15 seconds
 
 const BennerStyle = styled.section`
   position: relative; /* Added relative positioning for the arrow icons */
@@ -87,10 +85,10 @@ const SliderContainer = styled.div`
   margin: 0 auto;
   h3 {
     font-size: 50px;
-  };
+  }
   p {
     font-size: 35px;
-  };
+  }
 `;
 
 const Slide = styled.div`
@@ -183,27 +181,36 @@ const Body = () => {
         </BennerText>
       </BennerStyle>
       <AboutBody>
-        <h1>Great Offers</h1>
+        <div className="container">
+          <h1>Penawaran</h1>
+        </div>
         <p>
-          Far far away, behind the word mountains, 
-          far from the countries Vokalia and Consonantia, 
-          there live the blind texts. Separated they live in 
-          Bookmarksgrove right at the coast of the Semantics, 
-          a large language ocean.
+          Selamat datang di JavaHotel, destinasi resor dengan pemandangan alam memukau, fasilitas mewah, dan layanan ramah. 
+          Nikmati kamar elegan dengan amenitas kelas atas dan berbagai fasilitas rekreasi seperti kolam renang, ruang gym, serta restoran dan bar. 
+          Tim kami siap memastikan liburan Anda tak terlupakan.
         </p>
         <AboutStyleWhite>
           <AboutImg>
             <img src={Kamar1} alt="Logo Hotel" />
           </AboutImg>
           <AboutStyle>
-              <Price><DollarSign>$199</DollarSign>/PER NIGHT</Price>
+          <Price>
+            <span style={{ color: 'black', marginRight: '10px', fontSize: '1.5rem' }}><s>IDR 2.500.000</s></span> 
+            <span style={{ color: '#FFA500', fontWeight: 'bold', fontSize: '2rem' }}>IDR 2.300.000</span>/Malam
+          </Price>
               <Header>Premium King Room</Header>
               <Deskripsi>
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, 
-                there live the blind texts. Separated they live in Bookmarksgrove right at the coast of 
-                the Semantics, a large language ocean.
+                Nikmati kenyamanan menginap di kamar seluas 30 kaki persegi yang dapat menampung hingga 3 orang. 
+                Kamar ini dilengkapi dengan tempat tidur king size yang empuk, menjanjikan istirahat yang nyenyak sepanjang malam. 
+                Anda dapat menikmati fasilitas WiFi gratis kecepatan tinggi untuk tetap terhubung dengan dunia maya, 
+                serta hiburan layar datar dengan saluran TV kabel favorit Anda. Kamar mandi privat mewah dengan amenities mandi berkualitas menambah kemewahan pengalaman menginap Anda. 
+                Kemudahan akses ke semua layanan ini akan memastikan liburan Anda benar-benar berkesan dan tak terlupakan.
               </Deskripsi>
-              <ButtonOrange>Book Now</ButtonOrange>
+              <ButtonOrange>
+                <Link to="/detail-kamar/1" style={{ textDecoration: 'none', color: 'white' }}>
+                  Baca Selengkapnya
+                </Link>
+              </ButtonOrange>
           </AboutStyle>
         </AboutStyleWhite>
         <AboutStyleWhite>
@@ -211,14 +218,23 @@ const Body = () => {
             <img src={Kamar2} alt="Logo Hotel" />
           </AboutImg>
           <AboutStyle>
-              <Price><DollarSign>$299</DollarSign>/PER NIGHT</Price>
+          <Price>
+            <span style={{ color: 'black', marginRight: '10px', fontSize: '1.5rem' }}><s>IDR 2.800.000</s></span> 
+            <span style={{ color: '#FFA500', fontWeight: 'bold', fontSize: '2rem' }}>IDR 2.500.000</span>/Malam
+          </Price>
               <Header>Deluxe Room</Header>
               <Deskripsi>
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, 
-                there live the blind texts. Separated they live in Bookmarksgrove right at the coast of 
-                the Semantics, a large language ocean.
+                Nikmati kenyamanan menginap di kamar seluas 30 kaki persegi yang dapat menampung hingga 3 orang. 
+                Kamar ini dilengkapi dengan tempat tidur king size yang empuk, menjanjikan istirahat yang nyenyak sepanjang malam. 
+                Anda dapat menikmati fasilitas WiFi gratis kecepatan tinggi untuk tetap terhubung dengan dunia maya, 
+                serta hiburan layar datar dengan saluran TV kabel favorit Anda. Kamar mandi privat mewah dengan amenities mandi berkualitas menambah kemewahan pengalaman menginap Anda. 
+                Kemudahan akses ke semua layanan ini akan memastikan liburan Anda benar-benar berkesan dan tak terlupakan.
               </Deskripsi>
-              <ButtonOrange>Book Now</ButtonOrange>
+              <ButtonOrange>
+                <Link to="/detail-kamar/2" style={{ textDecoration: 'none', color: 'white' }}>
+                  Baca Selengkapnya
+                </Link>
+              </ButtonOrange>
           </AboutStyle>
         </AboutStyleWhite>
         <AboutStyleWhite>
@@ -226,14 +242,23 @@ const Body = () => {
             <img src={Kamar3} alt="Logo Hotel" />
           </AboutImg>
           <AboutStyle>
-              <Price><DollarSign>$349</DollarSign>/PER NIGHT</Price>
-              <Header>Double Room</Header>
+          <Price>
+            <span style={{ color: 'black', marginRight: '10px', fontSize: '1.5rem' }}><s>IDR 2.500.000</s></span> 
+            <span style={{ color: '#FFA500', fontWeight: 'bold', fontSize: '2rem' }}>IDR 2.200.000</span>/Malam
+          </Price>
+              <Header>Room With View</Header>
               <Deskripsi>
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, 
-                there live the blind texts. Separated they live in Bookmarksgrove right at the coast of 
-                the Semantics, a large language ocean.
+                Nikmati kenyamanan menginap di kamar seluas 30 kaki persegi yang dapat menampung hingga 3 orang. 
+                Kamar ini dilengkapi dengan tempat tidur king size yang empuk, menjanjikan istirahat yang nyenyak sepanjang malam. 
+                Anda dapat menikmati fasilitas WiFi gratis kecepatan tinggi untuk tetap terhubung dengan dunia maya, 
+                serta hiburan layar datar dengan saluran TV kabel favorit Anda. Kamar mandi privat mewah dengan amenities mandi berkualitas menambah kemewahan pengalaman menginap Anda. 
+                Kemudahan akses ke semua layanan ini akan memastikan liburan Anda benar-benar berkesan dan tak terlupakan.
               </Deskripsi>
-              <ButtonOrange>Book Now</ButtonOrange>
+              <ButtonOrange>
+                <Link to="/detail-kamar/" style={{ textDecoration: 'none', color: 'white' }}>
+                  Baca Selengkapnya
+                </Link>
+              </ButtonOrange>
           </AboutStyle>
         </AboutStyleWhite>
       </AboutBody>

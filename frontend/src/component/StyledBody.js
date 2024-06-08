@@ -58,7 +58,7 @@ export const ButtonGreen = styled.button`
 
 export const ButtonOrange = styled.button`
     padding: 10px 40px;
-    border-radius: 20px;
+    border-radius: 10px;
     background: #b86614;
     color: white;
     font-weight: 400;
@@ -107,20 +107,25 @@ export const BoxInner = styled.div`
 `;
 
 export const Header = styled.div`
-    font-family: 'Times New Roman', Times, serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; 
+    background-color: #e8eedc; 
+    overflow-x: hidden;
     background-color: #f0f0f0;
     font-size: 40px;
     padding-top: 15px;
+    font-weight: bold; /* Menambah gaya tebal (bold) */
 `;
 
 export const Deskripsi = styled.div`
-    font-family: 'Times New Roman', Times, serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; 
     background-color: #f0f0f0;
     font-size: 20px;
     padding-top: 15px;
     padding-right: 40px;
     padding-bottom: 15px;
+    text-align: justify; /* Menambahkan gaya teks agar rata kiri-kanan */
 `;
+
 
 // Styling for the green section
 export const AboutStyleWhite = styled.section`
@@ -139,7 +144,8 @@ export const AboutImg = styled.div`
 
     img {
         width: 700px;
-        height: 400px
+        height: 400px;
+        border-radius: 20px;
     }
 `;
 
@@ -152,13 +158,14 @@ export const AboutStyle = styled.div`
 `;
 
 export const Price = styled.h2`
-    font-size: 24px;
     color: black; /* warna lainnya disesuaikan */
+    font-size: 1.5rem; /* Adjust as needed */
+    margin-top: 25px;
 `;
 
 export const DollarSign = styled.span`
     color: orange;
-    font-size: 50px;
+    font-size: 40px;
 `;
 
 // Additional styling for the description text
@@ -188,7 +195,7 @@ export const AboutStyleYellow = styled.section`
 `;
 
 export const AboutBody = styled.div`
-    text-align: center;
+    text-align: justify;
     font-size: 20px;
     background-color: putih;
     padding: 0;
@@ -198,13 +205,26 @@ export const AboutBody = styled.div`
     margin-top: 40px;
 
     h1 {
-        font-size: 75px;
+        font-size: 3rem;
+        margin-bottom: 25px;
+        text-align: center;
+        width : 100%;
+        margin-top: 20px;
+        display: inline-block;
+        border-bottom: 4px solid black;
+    }
+    
+    .container {
+        text-align: center;
+        width: 18%;
     }
 
     p {
-        font-size: 18px;
+        font-size: 23px;
         padding-right: 225px;
         padding-left: 225px;
+        margin-bottom: 50px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; 
     }
 `;
 

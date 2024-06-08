@@ -12,8 +12,8 @@ function Kontak() {
   return (
     <div className="Kontak">
       <div style={{ textAlign: 'center', width: '100%' }}>
-          <h1 style={{ marginTop: '20px', fontSize: '2.5rem', display: 'inline-block', borderBottom: '2px solid black'}}>Kontak</h1>
-        </div>
+        <h1 style={{ marginTop: '20px', fontSize: '3rem', display: 'inline-block', borderBottom: '4px solid black'}}>Kontak</h1>
+      </div>
       <Main>
         <ContactSection>
           <ContactInfo>
