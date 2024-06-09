@@ -1,4 +1,8 @@
+// Login.js
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { 
   LoginContainer,
   FlexKanan,
@@ -12,8 +16,6 @@ import {
   Title,
   Flex
 } from '../component/StyledLogin';
-import { Link } from 'react-router-dom';
-
 const Login = () => {
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
@@ -35,6 +37,11 @@ const Login = () => {
 
   return (
     <LoginContainer>
+      <FlexKiri>
+        <Link to="/">
+        <Button><FontAwesomeIcon icon={faArrowLeft} /></Button>
+        </Link>
+      </FlexKiri>
       <Title>Masuk</Title>
       <GoogleLoginButton>
         <img src="/images/googele.png" alt="Google Logo" style={{ width: '20px', marginRight: '10px' }} />
@@ -58,7 +65,7 @@ const Login = () => {
       </Form>
       <Flex>
         <FlexKanan>
-          <Link to="#" style={{ color: '#0D99FF' }}>Lupa kata sandi</Link>
+          <Link to="/Lupapass" style={{ color: '#0D99FF' }}>Lupa kata sandi</Link>
         </FlexKanan>
         <FlexKiri>
           <Link to="/daftar" style={{ color: '#0D99FF' }}>Daftar</Link>
