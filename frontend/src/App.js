@@ -20,7 +20,7 @@ import axios from 'axios';
 
 const App = () => {
   const location = useLocation();
-  const noHeaderFooterPaths = ['/masuk', '/daftar', '/lupapass', '/Newpass']; // Add '/newpass' to the paths that hide Header and Footer
+  const noHeaderFooterPaths = ['/masuk', '/daftar', '/Lupapass', '/newpass']; // Add '/newpass' to the paths that hide Header and Footer
   const shouldHideHeaderFooter = noHeaderFooterPaths.includes(location.pathname);
 
   return (
