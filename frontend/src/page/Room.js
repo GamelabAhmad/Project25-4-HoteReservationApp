@@ -35,7 +35,7 @@ const Room = () => {
               <h3><b>{room.name}</b></h3>
               <span className="Price" style={{ display: 'flex', alignItems: 'center' }}>
                 <Price className="amount" style={{ marginRight: '5px' }}>{room.price}</Price>
-                <span className="pernight" style={{ fontSize: '20px', color: 'black' }}>/Malam</span>
+              <span className="pernight" style={{ fontSize: '20px', color: 'black' }}>/Malam</span>
               </span>
               <div className="deskripsi">
                 <div className="kiri">

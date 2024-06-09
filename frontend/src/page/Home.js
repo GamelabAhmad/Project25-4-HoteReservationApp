@@ -20,7 +20,7 @@ import {
   AboutStyleWhite, 
   ReviewContainer,
   ReviewTitle,
-} from "../component/StyledBody";
+} from "../component/StyledHome";
 
 // Array of image URLs
 const images = [
