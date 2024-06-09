@@ -12,6 +12,8 @@ import {
   Title,
   Flex,
 } from "../component/StyledLogin";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -40,6 +42,16 @@ const Login = () => {
 
   return (
     <LoginContainer>
+       <FlexKiri>
+        <Link to="/">
+        <Button><FontAwesomeIcon icon={faArrowLeft} /></Button>
+        </Link>
+      </FlexKiri>
+      <GoogleLoginButton>
+        <img src="/images/googele.png" alt="Google Logo" style={{ width: '20px', marginRight: '10px' }} />
+        Masuk dengan Google
+      </GoogleLoginButton>
+
       <Title>Masuk</Title>
       <Divider>atau</Divider>
       <Form onSubmit={handleLogin}>
@@ -59,7 +71,7 @@ const Login = () => {
       </Form>
       <Flex>
         <FlexKanan>
-          <Link to="#" style={{ color: "#0D99FF" }}>
+          <Link to="/Lupapass" style={{ color: "#0D99FF" }}>
             Lupa kata sandi
           </Link>
         </FlexKanan>
