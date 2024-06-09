@@ -27,7 +27,7 @@ const App = () => {
     <div className="App">
       {!shouldHideHeaderFooter && <Header />}
       <Routes>
-        <Route path="/" element={<Body />} />
+        <Route path="/body" element={<Body />} />
         <Route path="/tentang" element={<Tentang />} />
         <Route path="/ruang" element={<Room />} />
         <Route path="/kontak" element={<Kontak />} />
