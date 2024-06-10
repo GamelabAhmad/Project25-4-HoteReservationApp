@@ -35,11 +35,7 @@ const Room = () => {
               <h3><b>{room.name}</b></h3>
               <span className="price" style={{ display: 'flex', alignItems: 'center' }}>
                 <Price className="amount" style={{ marginRight: '5px' }}>{room.price}</Price>
-<<<<<<< HEAD
                 <span className="pernight" style={{ color: 'black' }}>/Malam</span>
-=======
-              <span className="pernight" style={{ fontSize: '20px', color: 'black' }}>/Malam</span>
->>>>>>> d84db1142e25bc5a074260f694a01f04a1d2cf5c
               </span>
               <div className="deskripsi">
                 <div className="kiri">

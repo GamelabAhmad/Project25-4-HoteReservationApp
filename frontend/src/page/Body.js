@@ -230,7 +230,6 @@ const Body = () => {
           Nikmati kamar elegan dengan amenitas kelas atas dan berbagai fasilitas rekreasi seperti kolam renang, ruang gym, serta restoran dan bar. 
           Tim kami siap memastikan liburan Anda tak terlupakan.
         </p>
-<<<<<<< HEAD
         <RoomBox>
           <RoomImage>
             <img src={Kamar1} alt="Premium King Room" />
@@ -303,80 +302,6 @@ const Body = () => {
             </ButtonOrange>
           </RoomDetails>
         </RoomBox>
-=======
-        <AboutStyleWhite>
-          <AboutImg>
-            <img src={Kamar1} alt="Logo Hotel" />
-          </AboutImg>
-          <AboutStyle>
-          <Price>
-            <span style={{ color: 'black', marginRight: '10px', fontSize: '1.5rem' }}><s>IDR 2.500.000</s></span> 
-            <span style={{ color: '#FFA500', fontWeight: 'bold', fontSize: '2rem' }}>IDR 2.300.000</span>/Malam
-          </Price>
-              <Header>Premium King Room</Header>
-              <Deskripsi>
-                Nikmati kenyamanan menginap di kamar seluas 30 kaki persegi yang dapat menampung hingga 3 orang. 
-                Kamar ini dilengkapi dengan tempat tidur king size yang empuk, menjanjikan istirahat yang nyenyak sepanjang malam. 
-                Anda dapat menikmati fasilitas WiFi gratis kecepatan tinggi untuk tetap terhubung dengan dunia maya, 
-                serta hiburan layar datar dengan saluran TV kabel favorit Anda. Kamar mandi privat mewah dengan amenities mandi berkualitas menambah kemewahan pengalaman menginap Anda. 
-                Kemudahan akses ke semua layanan ini akan memastikan liburan Anda benar-benar berkesan dan tak terlupakan.
-              </Deskripsi>
-              <ButtonOrange>
-                <Link to="/detail-kamar/1" style={{ textDecoration: 'none', color: 'white' }}>
-                  Detail
-                </Link>
-              </ButtonOrange>
-          </AboutStyle>
-        </AboutStyleWhite>
-        <AboutStyleWhite>
-          <AboutImg>
-            <img src={Kamar2} alt="Logo Hotel" />
-          </AboutImg>
-          <AboutStyle>
-          <Price>
-            <span style={{ color: 'black', marginRight: '10px', fontSize: '1.5rem' }}><s>IDR 2.800.000</s></span> 
-            <span style={{ color: '#FFA500', fontWeight: 'bold', fontSize: '2rem' }}>IDR 2.500.000</span>/Malam
-          </Price>
-              <Header>Deluxe Room</Header>
-              <Deskripsi>
-                Nikmati kenyamanan menginap di kamar seluas 30 kaki persegi yang dapat menampung hingga 3 orang. 
-                Kamar ini dilengkapi dengan tempat tidur king size yang empuk, menjanjikan istirahat yang nyenyak sepanjang malam. 
-                Anda dapat menikmati fasilitas WiFi gratis kecepatan tinggi untuk tetap terhubung dengan dunia maya, 
-                serta hiburan layar datar dengan saluran TV kabel favorit Anda. Kamar mandi privat mewah dengan amenities mandi berkualitas menambah kemewahan pengalaman menginap Anda. 
-                Kemudahan akses ke semua layanan ini akan memastikan liburan Anda benar-benar berkesan dan tak terlupakan.
-              </Deskripsi>
-              <ButtonOrange>
-                <Link to="/detail-kamar/2" style={{ textDecoration: 'none', color: 'white' }}>
-                  Detail Kamar
-                </Link>
-              </ButtonOrange>
-          </AboutStyle>
-        </AboutStyleWhite>
-        <AboutStyleWhite>
-          <AboutImg>
-            <img src={Kamar3} alt="Logo Hotel" />
-          </AboutImg>
-          <AboutStyle>
-          <Price>
-            <span style={{ color: 'black', marginRight: '10px', fontSize: '1.5rem' }}><s>IDR 2.500.000</s></span> 
-            <span style={{ color: '#FFA500', fontWeight: 'bold', fontSize: '2rem' }}>IDR 2.200.000</span>/Malam
-          </Price>
-              <Header>Room With View</Header>
-              <Deskripsi>
-                Nikmati kenyamanan menginap di kamar seluas 30 kaki persegi yang dapat menampung hingga 3 orang. 
-                Kamar ini dilengkapi dengan tempat tidur king size yang empuk, menjanjikan istirahat yang nyenyak sepanjang malam. 
-                Anda dapat menikmati fasilitas WiFi gratis kecepatan tinggi untuk tetap terhubung dengan dunia maya, 
-                serta hiburan layar datar dengan saluran TV kabel favorit Anda. Kamar mandi privat mewah dengan amenities mandi berkualitas menambah kemewahan pengalaman menginap Anda. 
-                Kemudahan akses ke semua layanan ini akan memastikan liburan Anda benar-benar berkesan dan tak terlupakan.
-              </Deskripsi>
-              <ButtonOrange>
-                <Link to="/detail-kamar/6" style={{ textDecoration: 'none', color: 'white' }}>
-                  Detail Kamar
-                </Link>
-              </ButtonOrange>
-          </AboutStyle>
-        </AboutStyleWhite>
->>>>>>> d84db1142e25bc5a074260f694a01f04a1d2cf5c
       </AboutBody>
       <ReviewContainer>
         <ReviewTitle>Customer Reviews</ReviewTitle>
