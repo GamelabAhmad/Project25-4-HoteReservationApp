@@ -34,6 +34,7 @@ const Daftar = () => {
     e.preventDefault();
     if (password !== confirm_password) {
       console.error("Passwords do not match");
+      showNotification("Passwords do not match", "error");
       return;
     }
     try {
@@ -43,8 +44,10 @@ const Daftar = () => {
       );
       console.log(response.data);
       navigate("/masuk");
+      showNotification("Pendaftaran berhasil", "success");
     } catch (error) {
       console.error(error.response ? error.response.data : error.message);
+      showNotification("Pendaftaran gagal", "error");
     }
   };
 
@@ -56,13 +59,31 @@ const Daftar = () => {
       );
       console.log(res.data);
       navigate("/masuk");
+      showNotification("Login dengan Google berhasil", "success");
     } catch (error) {
       console.error(error.response ? error.response.data : error.message);
+      showNotification("Login dengan Google gagal", "error");
     }
   };
 
   const responseGoogleFailure = (error) => {
     console.error(error);
+    showNotification("Login dengan Google gagal", "error");
+  };
+
+  // Fungsi untuk menampilkan notifikasi
+  const showNotification = (message, type) => {
+    if ("Notification" in window) {
+      if (Notification.permission === "granted") {
+        new Notification(message);
+      } else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then((permission) => {
+          if (permission === "granted") {
+            new Notification(message);
+          }
+        });
+      }
+    }
   };
 
   return (

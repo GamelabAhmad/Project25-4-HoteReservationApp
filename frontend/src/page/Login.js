@@ -13,18 +13,18 @@ import {
   Flex,
 } from "../component/StyledLogin";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
+  const [loginStatus, setLoginStatus] = useState(null);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    // Logic to handle login
     try {
       const response = await axios.post(
         "http://localhost:5000/api/auth/login",
@@ -33,10 +33,29 @@ const Login = () => {
           password,
         }
       );
+      setLoginStatus(true);
       console.log(response.data);
-      navigate("/body"); // Ubah sesuai rute dashboard Anda
+      navigate("/body");
+      showNotification("Login Berhasil", "success");
     } catch (error) {
+      setLoginStatus(false);
       console.error(error.response ? error.response.data : error.message);
+      showNotification("Login Gagal", "error");
+    }
+  };
+
+  // Fungsi untuk menampilkan notifikasi
+  const showNotification = (message, type) => {
+    if ("Notification" in window) {
+      if (Notification.permission === "granted") {
+        new Notification(message);
+      } else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then((permission) => {
+          if (permission === "granted") {
+            new Notification(message);
+          }
+        });
+      }
     }
   };
 
@@ -47,12 +66,11 @@ const Login = () => {
         <Button><FontAwesomeIcon icon={faArrowLeft} /></Button>
         </Link>
       </FlexKiri>
+      <Title>Masuk</Title>
       <GoogleLoginButton>
         <img src="/images/googele.png" alt="Google Logo" style={{ width: '20px', marginRight: '10px' }} />
         Masuk dengan Google
       </GoogleLoginButton>
-
-      <Title>Masuk</Title>
       <Divider>atau</Divider>
       <Form onSubmit={handleLogin}>
         <Input
@@ -71,12 +89,18 @@ const Login = () => {
       </Form>
       <Flex>
         <FlexKanan>
-          <Link to="/Lupapass" style={{ color: "#0D99FF" }}>
+          {loginStatus === true && (
+            <FontAwesomeIcon icon={faCheck} style={{ color: "green", marginRight: "5px" }} />
+          )}
+          <Link to="/Lupapass" style={{ color: "#0D99FF", marginLeft: "5px" }}>
             Lupa kata sandi
           </Link>
         </FlexKanan>
         <FlexKiri>
-          <Link to="/daftar" style={{ color: "#0D99FF" }}>
+          {loginStatus === false && (
+            <FontAwesomeIcon icon={faTimes} style={{ color: "red", marginRight: "5px" }} />
+          )}
+          <Link to="/daftar" style={{ color: "#0D99FF", marginLeft: "5px" }}>
             Daftar
           </Link>
         </FlexKiri>
