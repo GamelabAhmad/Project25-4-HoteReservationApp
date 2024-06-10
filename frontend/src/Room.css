@@ -40,7 +40,7 @@
 }
   
 .price .amount {
-    font-size: 2em; /* Ukuran besar untuk "159$" */
+    font-size: 1.5em; /* Ukuran besar untuk "159$" */
     color: orange; /* Warna oranye untuk "159$" */
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif ;
@@ -85,7 +85,7 @@
   .more-detail-button::after {
     content: ''; /* Membuat elemen semu */
     display: block;
-    width: 90%; /* Lebar garis bawah sama dengan lebar teks */
+    width: 92%;
     height: 2px; /* Tinggi garis bawah */
     background: orange; /* Warna garis bawah */
     position: absolute; /* Posisi absolut relatif ke tombol */

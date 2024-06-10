@@ -13,17 +13,18 @@ export const BagianFooter = styled.footer`
     color: white;
     padding: 20px;
     display: flex;
+    flex-wrap: wrap; /* Memungkinkan bagian untuk memenuhi baris baru ketika tidak cukup ruang */
     justify-content: space-between;
 `;
 
 export const FooterSection = styled.div`
+    margin-left: 10%;
     padding: 10px;
+    flex: 1;
+    width: 100%; /* Setiap bagian akan mengambil 100% lebar saat layar kecil */
 `;
 
 export const FooterSection1 = styled(FooterSection)`
-    flex: 1;
-    width: 70%;
-    margin-left: 10%;
     h1 {
         color: orange;
         font-size: 45px;
@@ -35,8 +36,6 @@ export const FooterSection1 = styled(FooterSection)`
 `;
 
 export const FooterSection2 = styled(FooterSection)`
-    flex: 1;
-    width: 30%;
     h3 {
         font-size: 30px;
         font-family: inter;
@@ -47,8 +46,6 @@ export const FooterSection2 = styled(FooterSection)`
 `;
 
 export const FooterSection3 = styled(FooterSection)`
-    flex: 1;
-    width: 30%;
     h3 {
         font-size: 30px;
         font-family: inter;
@@ -64,3 +61,4 @@ export const WhatsAppIcon = styled.i`
     color: green;
     margin-right: 5px; /* Memberi sedikit jarak antara ikon dan teks */
 `;
+
