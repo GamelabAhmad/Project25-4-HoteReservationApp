@@ -4,6 +4,7 @@ const { sequelize } = require("./config/database");
 const dotenv = require("dotenv");
 const { OAuth2Client } = require("google-auth-library");
 const jwt = require("jsonwebtoken");
+const roomRoutes = require("./routes/roomRoutes");
 
 // Load environment variables
 dotenv.config();
@@ -17,9 +18,11 @@ app.use(express.json()); // Menggunakan express.json() untuk parse request body
 
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
-// Rute untuk registrasi pengguna
+// Rute endpoint
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/auth", require("./routes/googleAuthRoutes"));
+app.use("/api", roomRoutes);
+app.use("/api/bookings", require("./routes/bookingRoutes"));
 
 // Rute untuk login dengan Google
 app.post("/api/google-login", async (req, res) => {

@@ -1,34 +1,41 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../config/database");
 
-const User = sequelize.define(
-  "User",
+const Rooms = sequelize.define(
+  "Rooms",
   {
-    user_id: {
+    room_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    full_name: {
+    image: {
+      type: DataTypes.BLOB("long"),
+      allowNull: true,
+    },
+    room_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-    },
-    phone_number: {
+    price: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    password: {
+    ukuran: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    role: {
-      type: DataTypes.ENUM("user", "admin", "super_admin"),
-      defaultValue: "user",
+    kapasitas: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    tempat_tidur: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    layanan: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     created_at: {
       type: DataTypes.DATE,
@@ -40,11 +47,11 @@ const User = sequelize.define(
     },
   },
   {
-    tableName: "tbl_users",
+    tableName: "tbl_rooms",
     timestamps: true,
     createdAt: "created_at",
     updatedAt: "updated_at",
   }
 );
 
-module.exports = User;
+module.exports = Rooms;
