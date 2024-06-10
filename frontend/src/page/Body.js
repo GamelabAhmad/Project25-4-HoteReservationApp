@@ -249,7 +249,7 @@ const Body = () => {
             </Deskripsi>
             <ButtonOrange>
               <Link to="/detail-kamar/1" style={{ textDecoration: 'none', color: 'white' }}>
-                Baca Selengkapnya
+                Pesan Sekarang
               </Link>
             </ButtonOrange>
           </RoomDetails>
@@ -273,7 +273,7 @@ const Body = () => {
             </Deskripsi>
             <ButtonOrange>
               <Link to="/detail-kamar/2" style={{ textDecoration: 'none', color: 'white' }}>
-                Baca Selengkapnya
+                Pesan Sekarang
               </Link>
             </ButtonOrange>
           </RoomDetails>
@@ -297,7 +297,7 @@ const Body = () => {
             </Deskripsi>
             <ButtonOrange>
               <Link to="/detail-kamar/3" style={{ textDecoration: 'none', color: 'white' }}>
-                Baca Selengkapnya
+                Pesan Sekarang
               </Link>
             </ButtonOrange>
           </RoomDetails>

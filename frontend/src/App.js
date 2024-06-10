@@ -8,7 +8,7 @@ import Body from './page/Body';
 import Room from './page/Room';
 import Login from './page/Login';
 import Daftar from './page/Daftar';
-import DetailRoom from './page/DetailRoom';
+import Booking from './page/Booking';
 import Pesanan from './page/Pesanan';
 import Lupapass from './page/Lupapass';
 import Newpass from './page/Newpass'; // Import the Newpass component
@@ -28,12 +28,12 @@ const App = () => {
     <div className="App">
       {!shouldHideHeaderFooter && <Header />}
       <Routes>
-        <Route path="/body" element={<Body />} />
+        <Route path="/" element={<Body />} />
         <Route path="/tentang" element={<Tentang />} />
         <Route path="/ruang" element={<Room />} />
         <Route path="/kontak" element={<Kontak />} />
         <Route path="/pesanan" element={<Pesanan />} />
-        <Route path="/detail-kamar/:roomId" element={<DetailRoom />} /> 
+        <Route path="/pesan-kamar/:roomId" element={<Booking />} /> 
         <Route path="/masuk" element={<Login />} />
         <Route path="/daftar" element={<Daftar />} />
         <Route path="/lupapass" element={<Lupapass />} />

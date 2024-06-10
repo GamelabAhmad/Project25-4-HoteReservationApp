@@ -52,7 +52,7 @@ const Room = () => {
                 </div>
               </div>
               <button className="more-detail-button">
-                <b><Link to={`/detail-kamar/${room.id}`} style={{ textDecoration: 'none', color: 'black' }}>Baca Selengkapnya</Link></b>
+                <b><Link to={`/pesan-kamar/${room.id}`} style={{ textDecoration: 'none', color: 'black' }}>Baca Selengkapnya</Link></b>
               </button>
             </div>
           ))}
