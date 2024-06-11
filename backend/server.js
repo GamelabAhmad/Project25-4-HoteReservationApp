@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const { OAuth2Client } = require("google-auth-library");
 const jwt = require("jsonwebtoken");
 const roomRoutes = require("./routes/roomRoutes");
+const bookingRoutes = require("./routes/bookingRoutes");
 
 // Load environment variables
 dotenv.config();
@@ -22,7 +23,7 @@ const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/auth", require("./routes/googleAuthRoutes"));
 app.use("/api", roomRoutes);
-app.use("/api/bookings", require("./routes/bookingRoutes"));
+app.use("/api", bookingRoutes);
 
 // Rute untuk login dengan Google
 app.post("/api/google-login", async (req, res) => {
