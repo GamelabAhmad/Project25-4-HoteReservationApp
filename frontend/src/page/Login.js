@@ -7,15 +7,18 @@ import {
   Divider,
   Form,
   Input,
-  Button,
+  SubmitButton,
+  BackButton,
   PolicyText,
   Title,
   Flex,
+  StyledLink
 } from "../component/StyledLogin";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 
 const Login = () => {
   const [identifier, setIdentifier] = useState("");
@@ -59,57 +62,82 @@ const Login = () => {
     }
   };
 
+  const responseGoogleSuccess = (response) => {
+    console.log('Login Google berhasil:', response);
+    setLoginStatus(true);
+    // Logika tambahan untuk login sukses menggunakan Google
+  };
+
+  const responseGoogleFailure = (error) => {
+    console.log('Login Google gagal:', error);
+    setLoginStatus(false);
+    // Logika tambahan untuk login gagal menggunakan Google
+  };
+
   return (
-    <LoginContainer>
-       <FlexKiri>
-        <Link to="/">
-        <Button><FontAwesomeIcon icon={faArrowLeft} /></Button>
-        </Link>
-      </FlexKiri>
-      <Title>Masuk</Title>
-      <GoogleLoginButton>
-        <img src="/images/googele.png" alt="Google Logo" style={{ width: '20px', marginRight: '10px' }} />
-        Masuk dengan Google
-      </GoogleLoginButton>
-      <Divider>atau</Divider>
-      <Form onSubmit={handleLogin}>
-        <Input
-          type="text"
-          placeholder="Email atau Nomor HP"
-          value={identifier}
-          onChange={(e) => setIdentifier(e.target.value)}
-        />
-        <Input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <Button type="submit">Masuk</Button>
-      </Form>
-      <Flex>
-        <FlexKanan>
-          {loginStatus === true && (
-            <FontAwesomeIcon icon={faCheck} style={{ color: "green", marginRight: "5px" }} />
-          )}
-          <Link to="/Lupapass" style={{ color: "#0D99FF", marginLeft: "5px" }}>
-            Lupa kata sandi
-          </Link>
-        </FlexKanan>
-        <FlexKiri>
-          {loginStatus === false && (
-            <FontAwesomeIcon icon={faTimes} style={{ color: "red", marginRight: "5px" }} />
-          )}
-          <Link to="/daftar" style={{ color: "#0D99FF", marginLeft: "5px" }}>
-            Daftar
-          </Link>
-        </FlexKiri>
-      </Flex>
-      <PolicyText>
-        Dengan mengklik masuk, Anda menyetujui <a href="#">Ketentuan Layanan</a>{" "}
-        dan <a href="#">Kebijakan Privasi</a> kami
-      </PolicyText>
-    </LoginContainer>
+    <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
+      <LoginContainer>
+        <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
+          <StyledLink to="/">
+            <BackButton><FontAwesomeIcon icon={faArrowLeft} /></BackButton>
+          </StyledLink>
+        </div>
+        <div style={{ marginTop: '40px' }}> {/* Adjust margin top as needed */}
+          <Title>Masuk</Title>
+          <GoogleLogin
+            onSuccess={responseGoogleSuccess}
+            onError={responseGoogleFailure}
+            render={(renderProps) => (
+              <GoogleLoginButton
+                onClick={renderProps.onClick}
+                disabled={renderProps.disabled}
+              >
+                <img src="/images/googele.png" alt="Logo Google" style={{ width: '20px', marginRight: '10px' }} />
+                Masuk dengan Google
+              </GoogleLoginButton>
+            )}
+          />
+          <Divider>atau</Divider>
+          <Form onSubmit={handleLogin}>
+            <Input
+              type="text"
+              placeholder="Email atau Nomor HP"
+              value={identifier}
+              onChange={(e) => setIdentifier(e.target.value)}
+            />
+            <Input
+              type="password"
+              placeholder="Kata Sandi"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <SubmitButton type="submit">Masuk</SubmitButton>
+          </Form>
+          <Flex>
+            <FlexKanan>
+              {loginStatus === true && (
+                <FontAwesomeIcon icon={faCheck} style={{ color: "green", marginRight: "5px" }} />
+              )}
+              <StyledLink to="/Lupapass" style={{ color: "#0D99FF", marginLeft: "5px" }}>
+                Lupa kata sandi
+              </StyledLink>
+            </FlexKanan>
+            <FlexKiri>
+              {loginStatus === false && (
+                <FontAwesomeIcon icon={faTimes} style={{ color: "red", marginRight: "5px" }} />
+              )}
+              <StyledLink to="/daftar" style={{ color: "#0D99FF", marginLeft: "5px" }}>
+                Daftar
+              </StyledLink>
+            </FlexKiri>
+          </Flex>
+          <PolicyText>
+            Dengan mengklik masuk, Anda menyetujui <a href="#">Ketentuan Layanan</a>{" "}
+            dan <a href="#">Kebijakan Privasi</a> kami
+          </PolicyText>
+        </div>
+      </LoginContainer>
+    </GoogleOAuthProvider>
   );
 };
 

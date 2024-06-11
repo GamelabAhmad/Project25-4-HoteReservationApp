@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const LoginContainer = styled.div`
   display: flex;
@@ -10,11 +11,13 @@ export const LoginContainer = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   background-color: #fff;
+  position: relative; /* Tambahkan posisi relative untuk kontainer */
 `;
 
 export const Title = styled.h1`
   font-size: 35px;
   margin-bottom: 20px;
+  text-align: center;
 `;
 
 export const GoogleLoginButton = styled.button`
@@ -79,7 +82,7 @@ export const Input = styled.input`
   font-size: 16px;
 `;
 
-export const Button = styled.button`
+export const SubmitButton = styled.button`
   background-color: #000;
   color: white;
   padding: 12px;
@@ -96,7 +99,26 @@ export const Button = styled.button`
   }
 `;
 
-export const Link = styled.a`
+export const BackButton = styled.button`
+  background-color: transparent;
+  color: #000;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+
+  &:hover {
+    color: grey;
+  }
+`;
+
+export const BackButtonContainer = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 350px; /* Posisikan ke kanan */
+`;
+
+export const StyledLink = styled(Link)`
   color: #4285F4;
   text-decoration: none;
   font-size: 14px;
@@ -106,6 +128,7 @@ export const Link = styled.a`
     text-decoration: underline;
   }
 `;
+
 export const Flex = styled.div`
   width: 100%;
   display: flex;
