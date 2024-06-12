@@ -28,10 +28,10 @@ export const ContactInfo = styled.div`
     overflow: hidden;
     margin-right: 0; /* Ubah nilai margin-right menjadi 0 */
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* Batasi jumlah baris */
+    -webkit-line-clamp: 8; /* Batasi jumlah baris */
     -webkit-box-orient: vertical;
     line-height: 1.5em; /* Sesuaikan tinggi baris */
-    max-height: 4.5em; /* Sesuaikan tinggi maksimum berdasarkan tinggi baris dan jumlah baris */
+    max-height: 9em; /* Sesuaikan tinggi maksimum berdasarkan tinggi baris dan jumlah baris */
   }
 
   @media (max-width: 768px) {
@@ -40,7 +40,7 @@ export const ContactInfo = styled.div`
 `;
 
 export const ContactFormWrapper = styled.div`
-  width: 48%;
+  width: 80%;
   display: flex;
   flex-direction: column;
 

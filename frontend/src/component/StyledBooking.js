@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const BookingForm = styled.form`
-  background-color: #dbe4eb;
+  background-color: #F9F9F9;
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan */
 
   h2 {
     text-align: center;
@@ -41,7 +42,7 @@ export const SubmitButton = styled.button`
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #FFA500;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -49,7 +50,7 @@ export const SubmitButton = styled.button`
   font-size: 18px;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #000000;
   }
 `;
 
