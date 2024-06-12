@@ -6,13 +6,15 @@ export const Main = styled.main`
 
 export const ContactSection = styled.section`
   display: flex;
+  flex-wrap: wrap; /* Tambahkan flex-wrap untuk responsivitas */
   justify-content: space-between;
   padding: 20px;
 `;
 
 export const ContactInfo = styled.div`
   width: 48%;
-
+  margin-bottom: 20px; /* Tambahkan margin bawah untuk jarak antara info kontak dan form */
+  
   h2 {
     font-weight: 600;
     text-align: left;
@@ -31,12 +33,20 @@ export const ContactInfo = styled.div`
     line-height: 1.5em; /* Sesuaikan tinggi baris */
     max-height: 4.5em; /* Sesuaikan tinggi maksimum berdasarkan tinggi baris dan jumlah baris */
   }
+
+  @media (max-width: 768px) {
+    width: 100%; /* Lebar penuh pada layar kecil */
+  }
 `;
 
 export const ContactFormWrapper = styled.div`
   width: 48%;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    width: 100%; /* Lebar penuh pada layar kecil */
+  }
 `;
 
 export const ContactForm = styled.div`
@@ -45,14 +55,14 @@ export const ContactForm = styled.div`
 
   h2 {
     font-weight: 600;
-    font-size:2rem;
+    font-size: 2rem;
   }
 
   form {
     display: flex;
     flex-direction: column;
     margin-top: 10px;
-    width: 207%; /* Ubah lebar form menjadi 100% */
+    width: 100%; /* Lebar penuh pada layar kecil */
   }
 
   .form-row {
@@ -65,6 +75,7 @@ export const ContactForm = styled.div`
   .form-row input {
     flex: 1; /* Memastikan kedua input memiliki lebar yang sama */
     font-size: 1.3rem;
+    width: 100%; /* Kolom input memiliki panjang yang sama */
   }
 
   input,
@@ -78,6 +89,7 @@ export const ContactForm = styled.div`
 
   textarea {
     margin-bottom: 10px;
+    width: 100%; /* Kolom textarea memiliki panjang yang sama */
   }
 
   button {
@@ -96,7 +108,12 @@ export const ContactForm = styled.div`
       background-color: green;
     }
   }
+
+  @media (max-width: 768px) {
+    width: 100%; /* Lebar penuh pada layar kecil */
+  }
 `;
+
 
 export const GoogleMaps = styled.div`
   width: 48%;
@@ -112,5 +129,9 @@ export const GoogleMaps = styled.div`
     width: 100%;
     height: 400px;
     border: 0;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%; /* Lebar penuh pada layar kecil */
   }
 `;

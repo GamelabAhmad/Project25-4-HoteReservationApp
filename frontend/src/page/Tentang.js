@@ -13,7 +13,7 @@ import {
 } from '../component/StyledTentang';
 
 const anggotaTim = [
-  { nama: 'Andhita Firmansyah Putra', img: '/images/andhita-firman.png', deskripsi: 'Sebagai Frontend Developer' },
+  { nama: 'Andhita Firmansyah P.', img: '/images/andhita-firman.png', deskripsi: 'Sebagai Frontend Developer' },
   { nama: 'Faza Yoga Ardana', img: '/images/faza-yoga.png', deskripsi: 'Sebagai Frontend Developer' },
   { nama: 'Septinna Choirunisa', img: '/images/septinna-choirunisa.png', deskripsi: 'Sebagai Frontend Developer' },
   { nama: 'Moch Rizal Hardiansyah', img: '/images/moch-rizal.png', deskripsi: 'Sebagai Backend Developer' },

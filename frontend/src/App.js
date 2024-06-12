@@ -1,6 +1,4 @@
-// App.js
 import React from "react";
-import GlobalStyle from './StyledGlobal'; // Mengubah nama import
 import {
   BrowserRouter as Router,
   Routes,
@@ -58,7 +56,6 @@ const App = () => {
 
 const WrappedApp = () => (
   <Router>
-    <GlobalStyle /> {/* Menggunakan StyledGlobal di sini */}
     <App />
   </Router>
 );

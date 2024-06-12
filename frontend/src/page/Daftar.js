@@ -7,6 +7,7 @@ import {
   Input,
   Button,
   PolicyText,
+  BackgroundWrapper
 } from "../component/StyledDaftar";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -88,78 +89,80 @@ const Daftar = () => {
 
   return (
     <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
-      <DaftarContainer>
-        <h1>Daftar</h1>
-        <GoogleLogin
-          onSuccess={responseGoogleSuccess}
-          onError={responseGoogleFailure}
-          render={(renderProps) => (
-            <GoogleDaftarButton
-              onClick={renderProps.onClick}
-              disabled={renderProps.disabled}
-            >
-              <img
-                src="/images/googele.png"
-                alt="Google Logo"
-                style={{ width: "20px", marginRight: "10px" }}
-              />
-              Masuk dengan Google
-            </GoogleDaftarButton>
-          )}
-        />
-        <Divider>atau</Divider>
-        <Form onSubmit={onSubmit}>
-          <Input
-            type="text"
-            name="full_name"
-            value={full_name}
-            onChange={onChange}
-            placeholder="Nama Lengkap"
-            required
+      <BackgroundWrapper>
+        <DaftarContainer>
+          <h1>Daftar</h1>
+          <GoogleLogin
+            onSuccess={responseGoogleSuccess}
+            onError={responseGoogleFailure}
+            render={(renderProps) => (
+              <GoogleDaftarButton
+                onClick={renderProps.onClick}
+                disabled={renderProps.disabled}
+              >
+                <img
+                  src="/images/googele.png"
+                  alt="Google Logo"
+                  style={{ width: "20px", marginRight: "10px" }}
+                />
+                Masuk dengan Google
+              </GoogleDaftarButton>
+            )}
           />
-          <Input
-            type="email"
-            name="email"
-            value={email}
-            onChange={onChange}
-            placeholder="Email"
-            required
-          />
-          <Input
-            type="text"
-            name="phone_number"
-            value={phone_number}
-            onChange={onChange}
-            placeholder="No.HP"
-            required
-          />
-          <Input
-            type="password"
-            name="password"
-            value={password}
-            onChange={onChange}
-            placeholder="Password"
-            required
-          />
-          <Input
-            type="password"
-            name="confirm_password"
-            value={confirm_password}
-            onChange={onChange}
-            placeholder="Konfirmasi Password"
-            required
-          />
-          <Button type="submit">Daftar</Button>
-        </Form>
-        <Link to="/masuk" style={{ color: "#0D99FF" }}>
-          Masuk
-        </Link>
-        <PolicyText>
-          Dengan mengklik daftar, Anda menyetujui{" "}
-          <a href="#">Ketentuan Layanan</a> dan{" "}
-          <a href="#">Kebijakan Privasi</a> kami
-        </PolicyText>
-      </DaftarContainer>
+          <Divider>atau</Divider>
+          <Form onSubmit={onSubmit}>
+            <Input
+              type="text"
+              name="full_name"
+              value={full_name}
+              onChange={onChange}
+              placeholder="Nama Lengkap"
+              required
+            />
+            <Input
+              type="email"
+              name="email"
+              value={email}
+              onChange={onChange}
+              placeholder="Email"
+              required
+            />
+            <Input
+              type="text"
+              name="phone_number"
+              value={phone_number}
+              onChange={onChange}
+              placeholder="No.HP"
+              required
+            />
+            <Input
+              type="password"
+              name="password"
+              value={password}
+              onChange={onChange}
+              placeholder="Password"
+              required
+            />
+            <Input
+              type="password"
+              name="confirm_password"
+              value={confirm_password}
+              onChange={onChange}
+              placeholder="Konfirmasi Password"
+              required
+            />
+            <Button type="submit">Daftar</Button>
+          </Form>
+          <Link to="/masuk" style={{ color: "#0D99FF" }}>
+            Masuk
+          </Link>
+          <PolicyText>
+            Dengan mengklik daftar, Anda menyetujui{" "}
+            <a href="#">Ketentuan Layanan</a> dan{" "}
+            <a href="#">Kebijakan Privasi</a> kami
+          </PolicyText>
+        </DaftarContainer>
+      </BackgroundWrapper>
     </GoogleOAuthProvider>
   );
 };

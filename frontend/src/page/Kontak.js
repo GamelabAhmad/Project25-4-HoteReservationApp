@@ -7,7 +7,7 @@ import {
   ContactForm, 
   GoogleMaps, 
 } from '../component/StyledKontak';
-
+ 
 function Kontak() {
   return (
     <div className="Kontak">

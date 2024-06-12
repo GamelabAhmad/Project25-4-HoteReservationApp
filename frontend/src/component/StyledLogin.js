@@ -1,6 +1,16 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+export const BackgroundWrapper = styled.div`
+  background: url('/images/Lobby.png') no-repeat center center fixed;
+  background-size: 100%; /* Mengatur tinggi gambar latar belakang */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+`;
+
 export const LoginContainer = styled.div`
   display: flex;
   flex-direction: column;

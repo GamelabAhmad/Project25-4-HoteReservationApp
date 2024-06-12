@@ -1,6 +1,16 @@
 // StyledDaftar.js
 import styled from 'styled-components';
 
+export const BackgroundWrapper = styled.div`
+  background: url('/images/Lobby.png') no-repeat center center fixed;
+  background-size: 100%; /* Mengatur tinggi gambar latar belakang */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+`;
+
 export const DaftarContainer = styled.div`
   display: flex;
   flex-direction: column;
