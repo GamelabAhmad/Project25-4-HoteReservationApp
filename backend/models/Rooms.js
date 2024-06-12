@@ -10,7 +10,7 @@ const Rooms = sequelize.define(
       autoIncrement: true,
     },
     image: {
-      type: DataTypes.BLOB("long"),
+      type: DataTypes.STRING,
       allowNull: true,
     },
     room_name: {

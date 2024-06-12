@@ -1,7 +1,25 @@
-// controllers/roomController.js
 const Room = require("../models/Rooms");
 
-// Controller untuk mendapatkan semua kamar
+exports.uploadImage = async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: "No image uploaded" });
+    }
+    const imagePath = req.file.path;
+    // Simpan path gambar ke database, pastikan imagePath menyimpan path yang lengkap
+    const room = await Room.findByPk(req.body.roomId);
+    if (!room) {
+      return res.status(404).json({ error: "Room not found" });
+    }
+    room.image = imagePath;
+    await room.save();
+    res.status(200).json({ imageUrl: imagePath });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 exports.getAllRooms = async (req, res) => {
   try {
     const rooms = await Room.findAll();
@@ -12,7 +30,6 @@ exports.getAllRooms = async (req, res) => {
   }
 };
 
-// Controller untuk mendapatkan detail kamar berdasarkan ID
 exports.getRoomById = async (req, res) => {
   const { id } = req.params;
   try {
@@ -26,64 +43,3 @@ exports.getRoomById = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
-
-// // Controller untuk membuat kamar baru
-// exports.createRoom = async (req, res) => {
-//   const { image, room_name, price, ukuran, kapasitas, tempat_tidur, layanan } = req.body;
-//   try {
-//     const room = await Room.create({
-//       image,
-//       room_name,
-//       price,
-//       ukuran,
-//       kapasitas,
-//       tempat_tidur,
-//       layanan,
-//     });
-//     res.status(201).json(room);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: "Internal Server Error" });
-//   }
-// };
-
-// // Controller untuk memperbarui kamar berdasarkan ID
-// exports.updateRoom = async (req, res) => {
-//   const { id } = req.params;
-//   const { image, room_name, price, ukuran, kapasitas, tempat_tidur, layanan } = req.body;
-//   try {
-//     let room = await Room.findByPk(id);
-//     if (!room) {
-//       return res.status(404).json({ error: "Room not found" });
-//     }
-//     room = await room.update({
-//       image,
-//       room_name,
-//       price,
-//       ukuran,
-//       kapasitas,
-//       tempat_tidur,
-//       layanan,
-//     });
-//     res.json(room);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: "Internal Server Error" });
-//   }
-// };
-
-// // Controller untuk menghapus kamar berdasarkan ID
-// exports.deleteRoom = async (req, res) => {
-//   const { id } = req.params;
-//   try {
-//     const room = await Room.findByPk(id);
-//     if (!room) {
-//       return res.status(404).json({ error: "Room not found" });
-//     }
-//     await room.destroy();
-//     res.json({ message: "Room deleted successfully" });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: "Internal Server Error" });
-//   }
-// };
