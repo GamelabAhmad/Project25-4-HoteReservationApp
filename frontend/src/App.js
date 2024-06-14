@@ -15,6 +15,8 @@ import Login from "./page/Login";
 import Daftar from "./page/Daftar";
 import Booking from "./page/Booking";
 import Pesanan from "./page/Pesanan";
+import Produk from './page/Produk'; // Import komponen Products
+import TambahKamar from './page/TambahKamar'; // Import komponen Products
 import Lupapass from "./page/Lupapass";
 import Newpass from "./page/Newpass"; // Import the Newpass component
 import Home from "./page/Home";
@@ -40,6 +42,8 @@ const App = () => {
         <Route path="/ruang" element={<Room />} />
         <Route path="/kontak" element={<Kontak />} />
         <Route path="/pesanan" element={<Pesanan />} />
+        <Route path="/produk" element={<Produk />} />
+        <Route path="/tambah-kamar" element={<TambahKamar />} />
         <Route path="/pesan-kamar/:id" element={<Booking />} />
         <Route path="/masuk" element={<Login />} />
         <Route path="/daftar" element={<Daftar />} />

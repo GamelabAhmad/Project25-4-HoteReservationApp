@@ -127,8 +127,8 @@ const Header = () => {
                 </Link>
               </LiStyle>
               <LiStyle>
-                <Link to="/products" style={{ textDecoration: "none" }}>
-                  <AStyle>Products</AStyle>
+                <Link to="/produk" style={{ textDecoration: "none" }}>
+                  <AStyle>Produk</AStyle>
                 </Link>
               </LiStyle>
               <LiStyle>
