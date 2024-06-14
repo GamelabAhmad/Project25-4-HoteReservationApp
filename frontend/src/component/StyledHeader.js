@@ -134,3 +134,28 @@ export const ToggleMenu = styled.div`
     transition: all 0.3s ease;
   }
 `;
+
+export const SubMenu = styled.ul`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  width: 200px;
+  padding: 10px 0;
+  margin: 0;
+  list-style: none;
+
+  &:hover {
+      color: #0D99FF;
+  }
+      
+  ${LiStyle} {
+    padding-top: 20px;
+    padding: 10px 20px;
+    &:hover {
+      background-color: #333;
+    }
+  }
+`;

@@ -43,7 +43,7 @@ const Login = () => {
       );
       setLoginStatus(true);
       localStorage.setItem("token", response.data.token);
-      navigate("/"); // Arahkan ke halaman home
+      navigate("/home"); // Arahkan ke halaman home
       showNotification("Login Berhasil", "success");
     } catch (error) {
       setLoginStatus(false);
@@ -76,7 +76,7 @@ const Login = () => {
       );
       localStorage.setItem("token", googleResponse.data.token);
       setLoginStatus(true);
-      navigate("/"); // Arahkan ke halaman home
+      navigate("/home.js"); // Arahkan ke halaman home
     } catch (error) {
       console.error("Google login error:", error);
       setLoginStatus(false);
@@ -95,7 +95,7 @@ const Login = () => {
       <BackgroundWrapper>
         <LoginContainer>
           <div style={{ position: "absolute", top: "10px", left: "10px" }}>
-            <StyledLink to="/">
+            <StyledLink to="/home">
               <BackButton>
                 <FontAwesomeIcon icon={faArrowLeft} />
               </BackButton>
@@ -137,6 +137,7 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <SubmitButton type="submit">Masuk</SubmitButton>
+              
             </Form>
             <Flex>
               <FlexKanan>

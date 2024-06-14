@@ -35,7 +35,7 @@ const App = () => {
     <div className="App">
       {!shouldHideHeaderFooter && <Header />}
       <Routes>
-        <Route path="/body" element={<Body />} />
+        <Route path="/Body" element={<Body />} />
         <Route path="/tentang" element={<Tentang />} />
         <Route path="/ruang" element={<Room />} />
         <Route path="/kontak" element={<Kontak />} />
@@ -45,8 +45,8 @@ const App = () => {
         <Route path="/daftar" element={<Daftar />} />
         <Route path="/lupapass" element={<Lupapass />} />
         <Route path="/newpass" element={<Newpass />} />{" "}
-        {/* Add the Newpass route */}
         <Route path="/Home" element={<Home />} />
+        {/* Add the Newpass route */}
         <Route path="/Profile" element={<Profile />} />
       </Routes>
       {!shouldHideHeaderFooter && <Footer />}
