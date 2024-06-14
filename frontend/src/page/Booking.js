@@ -15,8 +15,8 @@ const Booking = () => {
     checkOutDate: "",
     roomType: "",
     specialRequests: "",
-    userId: null, // Mengubah userId menjadi null untuk menunjukkan bahwa nilainya belum ditentukan
-    roomId: null, // Mengubah roomId menjadi null untuk menunjukkan bahwa nilainya belum ditentukan
+    userId: 1, // Mengubah userId menjadi null untuk menunjukkan bahwa nilainya belum ditentukan
+    roomId: 1, // Mengubah roomId menjadi null untuk menunjukkan bahwa nilainya belum ditentukan
   });
 
   const navigate = useNavigate();
@@ -48,8 +48,8 @@ const Booking = () => {
           checkOutDate: "",
           roomType: "",
           specialRequests: "",
-          userId: null, // Mengubah userId menjadi null kembali setelah berhasil disimpan
-          roomId: null, // Mengubah roomId menjadi null kembali setelah berhasil disimpan
+          userId: 1, // Mengubah userId menjadi null kembali setelah berhasil disimpan
+          roomId: 1, // Mengubah roomId menjadi null kembali setelah berhasil disimpan
         });
         navigate("/payment"); // Arahkan ke halaman pembayaran
       } else {

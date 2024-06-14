@@ -9,8 +9,8 @@ exports.createBooking = async (req, res) => {
       checkOutDate,
       roomType,
       specialRequests,
-      userId,
-      roomId,
+      // userId,
+      // roomId,
     } = req.body;
 
     const booking = await Booking.create({
@@ -20,8 +20,8 @@ exports.createBooking = async (req, res) => {
       check_out_date: checkOutDate,
       room_type: roomType,
       noted: specialRequests,
-      user_id: userId,
-      room_id: roomId,
+      // user_id: userId,
+      // room_id: roomId,
     });
 
     res.status(201).json(booking);

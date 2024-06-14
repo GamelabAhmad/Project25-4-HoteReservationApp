@@ -35,24 +35,7 @@ const Booking = sequelize.define(
       type: DataTypes.TEXT,
       allowNull: true,
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: User, // Referensi ke model User
-        key: "user_id", // Kolom user_id di model User
-      },
-      onDelete: "CASCADE", // Menghapus booking jika user dihapus
-    },
-    room_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: Room, // Referensi ke model Room
-        key: "room_id", // Kolom room_id di model Room
-      },
-      onDelete: "CASCADE", // Menghapus booking jika room dihapus
-    },
+
     booking_date: {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,
@@ -70,8 +53,27 @@ const Booking = sequelize.define(
   }
 );
 
+// user_id: {
+//       type: DataTypes.INTEGER,
+//       allowNull: false,
+//       references: {
+//         model: User, // Referensi ke model User
+//         key: "user_id", // Kolom user_id di model User
+//       },
+//       onDelete: "CASCADE", // Menghapus booking jika user dihapus
+//     },
+//     room_id: {
+//       type: DataTypes.INTEGER,
+//       allowNull: false,
+//       references: {
+//         model: Room, // Referensi ke model Room
+//         key: "room_id", // Kolom room_id di model Room
+//       },
+//       onDelete: "CASCADE", // Menghapus booking jika room dihapus
+//     },
+
 // Definisikan relasi
-Booking.belongsTo(User, { foreignKey: "user_id", onDelete: "CASCADE" }); // Relasi ke model User
-Booking.belongsTo(Room, { foreignKey: "room_id", onDelete: "CASCADE" }); // Relasi ke model Room
+// Booking.belongsTo(User, { foreignKey: "user_id", onDelete: "CASCADE" }); // Relasi ke model User
+// Booking.belongsTo(Room, { foreignKey: "room_id", onDelete: "CASCADE" }); // Relasi ke model Room
 
 module.exports = Booking; // Ekspor model Booking
