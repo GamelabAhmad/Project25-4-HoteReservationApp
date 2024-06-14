@@ -317,21 +317,19 @@ export const AboutStyleYellow = styled.section`
 export const AboutBody = styled.div`
   text-align: justify;
   font-size: 20px;
-  background-color: putih;
+  background-color: white;
   padding: 0;
-  margin-bottom: 0px;
-  padding-right: 250px;
-  padding-left: 250px;
+  margin-bottom: 0;
+  padding-right: 25px;
+  padding-left: 25px;
   margin-top: 40px;
 
   h1 {
     font-size: 3rem;
     margin-bottom: 25px;
     text-align: center;
-    width: 100%;
-    margin-top: 20px;
-    display: inline-block;
     border-bottom: 4px solid black;
+    padding-bottom: 10px;
 
     @media (max-width: 768px) {
       font-size: 2.5rem;
@@ -344,34 +342,33 @@ export const AboutBody = styled.div`
 
   .container {
     text-align: center;
-    width: 18%;
+    width: 100%;
 
-    @media (max-width: 768px) {
-      width: 25%;
+    @media (min-width: 768px) {
+      max-width: 768px;
+      margin: 0 auto;
     }
 
-    @media (max-width: 480px) {
-      width: 35%;
+    @media (min-width: 992px) {
+      max-width: 992px;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 1200px;
     }
   }
 
   p {
-    font-size: 23px;
-    padding-right: 225px;
-    padding-left: 225px;
-    margin-bottom: 50px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; 
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.6;
 
     @media (max-width: 768px) {
-      font-size: 20px;
-      padding-right: 100px;
-      padding-left: 100px;
+      font-size: 16px;
     }
 
     @media (max-width: 480px) {
-      font-size: 18px;
-      padding-right: 50px;
-      padding-left: 50px;
+      font-size: 14px;
     }
   }
 `;

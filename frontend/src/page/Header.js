@@ -89,7 +89,7 @@ const Header = () => {
                     marginLeft: "15px",
                   }}
                 >
-                  Logout
+                  Keluar
                 </button>
               </>
             ) : (

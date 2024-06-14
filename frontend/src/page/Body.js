@@ -11,13 +11,10 @@ import { Link } from 'react-router-dom';
 
 import { 
   AboutBody,
-  AboutImg,
-  AboutStyle,
   Price,
   Header,
   Deskripsi,
   ButtonOrange,
-  AboutStyleWhite, 
   ReviewContainer,
   ReviewTitle,
 } from "../component/StyledBody";

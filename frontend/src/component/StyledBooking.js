@@ -5,7 +5,8 @@ export const BookingForm = styled.form`
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  margin-top: 40px; /* Menambahkan margin-top untuk jarak dari atas */
+  margin-top: 40px;
+  margin-bottom: 40px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
