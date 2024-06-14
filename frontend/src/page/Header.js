@@ -11,6 +11,7 @@ import {
   RightContainer,
   LoginRegisterStyle,
   ToggleMenu,
+  SubMenu,
 } from "../component/StyledHeader";
 
 const Header = () => {
@@ -18,6 +19,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBig, setIsBig] = useState(window.innerWidth > 768);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isMasterOpen, setIsMasterOpen] = useState(false); // State untuk submenu
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -54,6 +56,10 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleMasterToggle = () => {
+    setIsMasterOpen(!isMasterOpen);
+  };
+  
   const handleLogout = () => {
     localStorage.removeItem("token");
     setIsAuthenticated(false);
@@ -79,6 +85,8 @@ const Header = () => {
                     border: "none",
                     background: "none",
                     cursor: "pointer",
+                    color: "white",
+                    marginLeft: "15px",
                   }}
                 >
                   Logout
@@ -108,6 +116,28 @@ const Header = () => {
           <Link to="/ruang" style={{ textDecoration: "none" }}>
             <AStyle>Kamar</AStyle>
           </Link>
+        </LiStyle>
+        <LiStyle onClick={handleMasterToggle} style={{ position: 'relative', color: 'white' }}>
+          <AStyle>Data Master</AStyle>
+          {isMasterOpen && (
+            <SubMenu>
+              <LiStyle>
+                <Link to="/users" style={{ textDecoration: "none" }}>
+                  <AStyle>Users</AStyle>
+                </Link>
+              </LiStyle>
+              <LiStyle>
+                <Link to="/products" style={{ textDecoration: "none" }}>
+                  <AStyle>Products</AStyle>
+                </Link>
+              </LiStyle>
+              <LiStyle>
+                <Link to="/categories" style={{ textDecoration: "none" }}>
+                  <AStyle>Categories</AStyle>
+                </Link>
+              </LiStyle>
+            </SubMenu>
+          )}
         </LiStyle>
         <LiStyle>
           <Link to="/tentang" style={{ textDecoration: "none" }}>
