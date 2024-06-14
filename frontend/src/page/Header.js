@@ -65,7 +65,7 @@ const Header = () => {
         </RightContainer>
       </LeftContainer>
       <UlStyle isOpen={isOpen}>
-        <LiStyle><Link to="/" style={{ textDecoration: 'none' }}><AStyle>Beranda</AStyle></Link></LiStyle>
+        <LiStyle><Link to="/body" style={{ textDecoration: 'none' }}><AStyle>Beranda</AStyle></Link></LiStyle>
         <LiStyle><Link to="/ruang" style={{ textDecoration: 'none' }}><AStyle>Kamar</AStyle></Link></LiStyle>
         <LiStyle><Link to="/tentang" style={{ textDecoration: 'none' }}><AStyle>Tentang</AStyle></Link></LiStyle>
         <LiStyle><Link to="/pesanan" style={{ textDecoration: 'none' }}><AStyle>Pesanan</AStyle></Link></LiStyle>
