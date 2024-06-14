@@ -13,10 +13,14 @@ import {
   Title,
   Flex,
   StyledLink,
-  BackgroundWrapper
+  BackgroundWrapper,
 } from "../component/StyledLogin";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowLeft,
+  faCheck,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
@@ -38,8 +42,8 @@ const Login = () => {
         }
       );
       setLoginStatus(true);
-      console.log(response.data);
-      navigate("/body");
+      localStorage.setItem("token", response.data.token);
+      navigate("/"); // Arahkan ke halaman home
       showNotification("Login Berhasil", "success");
     } catch (error) {
       setLoginStatus(false);
@@ -63,28 +67,43 @@ const Login = () => {
     }
   };
 
-  const responseGoogleSuccess = (response) => {
-    console.log('Login Google berhasil:', response);
-    setLoginStatus(true);
-    // Logika tambahan untuk login sukses menggunakan Google
+  const responseGoogleSuccess = async (response) => {
+    console.log("Login Google berhasil:", response);
+    try {
+      const googleResponse = await axios.post(
+        "http://localhost:5000/api/auth/google",
+        { token: response.credential }
+      );
+      localStorage.setItem("token", googleResponse.data.token);
+      setLoginStatus(true);
+      navigate("/"); // Arahkan ke halaman home
+    } catch (error) {
+      console.error("Google login error:", error);
+      setLoginStatus(false);
+      showNotification("Login Google Gagal", "error");
+    }
   };
 
   const responseGoogleFailure = (error) => {
-    console.log('Login Google gagal:', error);
+    console.log("Login Google gagal:", error);
     setLoginStatus(false);
-    // Logika tambahan untuk login gagal menggunakan Google
+    showNotification("Login Google Gagal", "error");
   };
 
   return (
     <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
       <BackgroundWrapper>
         <LoginContainer>
-          <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
+          <div style={{ position: "absolute", top: "10px", left: "10px" }}>
             <StyledLink to="/">
-              <BackButton><FontAwesomeIcon icon={faArrowLeft} /></BackButton>
+              <BackButton>
+                <FontAwesomeIcon icon={faArrowLeft} />
+              </BackButton>
             </StyledLink>
           </div>
-          <div style={{ marginTop: '40px' }}> {/* Sesuaikan margin top sesuai kebutuhan */}
+          <div style={{ marginTop: "40px" }}>
+            {" "}
+            {/* Sesuaikan margin top sesuai kebutuhan */}
             <Title>Masuk</Title>
             <GoogleLogin
               onSuccess={responseGoogleSuccess}
@@ -94,7 +113,11 @@ const Login = () => {
                   onClick={renderProps.onClick}
                   disabled={renderProps.disabled}
                 >
-                  <img src="/images/google.png" alt="Logo Google" style={{ width: '20px', marginRight: '10px' }} />
+                  <img
+                    src="/images/google.png"
+                    alt="Logo Google"
+                    style={{ width: "20px", marginRight: "10px" }}
+                  />
                   Masuk dengan Google
                 </GoogleLoginButton>
               )}
@@ -118,24 +141,37 @@ const Login = () => {
             <Flex>
               <FlexKanan>
                 {loginStatus === true && (
-                  <FontAwesomeIcon icon={faCheck} style={{ color: "green", marginRight: "5px" }} />
+                  <FontAwesomeIcon
+                    icon={faCheck}
+                    style={{ color: "green", marginRight: "5px" }}
+                  />
                 )}
-                <StyledLink to="/Lupapass" style={{ color: "#0D99FF", marginLeft: "5px" }}>
+                <StyledLink
+                  to="/Lupapass"
+                  style={{ color: "#0D99FF", marginLeft: "5px" }}
+                >
                   Lupa kata sandi
                 </StyledLink>
               </FlexKanan>
               <FlexKiri>
                 {loginStatus === false && (
-                  <FontAwesomeIcon icon={faTimes} style={{ color: "red", marginRight: "5px" }} />
+                  <FontAwesomeIcon
+                    icon={faTimes}
+                    style={{ color: "red", marginRight: "5px" }}
+                  />
                 )}
-                <StyledLink to="/daftar" style={{ color: "#0D99FF", marginLeft: "5px" }}>
+                <StyledLink
+                  to="/daftar"
+                  style={{ color: "#0D99FF", marginLeft: "5px" }}
+                >
                   Daftar
                 </StyledLink>
               </FlexKiri>
             </Flex>
             <PolicyText>
-              Dengan mengklik masuk, Anda menyetujui <a href="#">Ketentuan Layanan</a>{" "}
-              dan <a href="#">Kebijakan Privasi</a> kami
+              Dengan mengklik masuk, Anda menyetujui{" "}
+              <a href="#">Ketentuan Layanan</a> dan{" "}
+              <a href="#">Kebijakan Privasi</a> kami
             </PolicyText>
           </div>
         </LoginContainer>
