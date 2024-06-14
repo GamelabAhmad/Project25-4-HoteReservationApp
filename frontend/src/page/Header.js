@@ -72,7 +72,7 @@ const Header = () => {
           <LoginRegisterStyle isBig={isBig}>
             {isAuthenticated ? (
               <>
-                <Link to="/profil">Profil</Link>
+                <Link to="/profile">Profil</Link>
                 <button
                   onClick={handleLogout}
                   style={{

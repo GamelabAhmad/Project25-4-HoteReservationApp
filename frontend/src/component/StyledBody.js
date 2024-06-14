@@ -206,7 +206,6 @@ export const Deskripsi = styled.div`
 `;
 
 export const AboutStyleWhite = styled.section`
-<<<<<<< HEAD
   display: flex;
   align-items: center;
   justify-content: left;
@@ -217,19 +216,9 @@ export const AboutStyleWhite = styled.section`
   @media (max-width: 768px) {
     justify-content: center;
   }
-=======
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    background-color: #f0f0f0;
-    padding-bottom: 60px;
-    margin-bottom: 50px;
-    border-radius: 20px;
->>>>>>> d84db1142e25bc5a074260f694a01f04a1d2cf5c
 `;
 
 export const AboutImg = styled.div`
-<<<<<<< HEAD
   width: 50%;
   box-sizing: border-box;
   text-align: left;
@@ -242,17 +231,6 @@ export const AboutImg = styled.div`
     @media (max-width: 768px) {
       width: 100%;
       height: auto;
-=======
-    width: 50%;
-    box-sizing: border-box;
-    text-align: center;
-
-    img {
-        width: 700px;
-        height: 470px;
-        border-radius: 20px;
-        margin-top:50px;
->>>>>>> d84db1142e25bc5a074260f694a01f04a1d2cf5c
     }
   }
 `;
@@ -270,7 +248,6 @@ export const AboutStyle = styled.div`
 `;
 
 export const Price = styled.h2`
-<<<<<<< HEAD
   color: black;
   font-size: 1.5rem;
   margin-top: 25px;
@@ -287,11 +264,6 @@ export const Price = styled.h2`
 export const DollarSign = styled.span`
   color: orange;
   font-size: 40px;
-=======
-    color: black; /* warna lainnya disesuaikan */
-    font-size: 1.5rem; /* Adjust as needed */
-    margin-top: 50px;
->>>>>>> d84db1142e25bc5a074260f694a01f04a1d2cf5c
 `;
 
 export const AboutText = styled.div`

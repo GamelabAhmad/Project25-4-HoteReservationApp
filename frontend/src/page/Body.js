@@ -248,7 +248,7 @@ const Body = () => {
               Kemudahan akses ke semua layanan ini akan memastikan liburan Anda benar-benar berkesan dan tak terlupakan.
             </Deskripsi>
             <ButtonOrange>
-              <Link to="/detail-kamar/1" style={{ textDecoration: 'none', color: 'white' }}>
+              <Link to="/pesan-kamar/1" style={{ textDecoration: 'none', color: 'white' }}>
                 Pesan Sekarang
               </Link>
             </ButtonOrange>
@@ -272,7 +272,7 @@ const Body = () => {
               Kemudahan akses ke semua layanan ini akan memastikan liburan Anda benar-benar berkesan dan tak terlupakan.
             </Deskripsi>
             <ButtonOrange>
-              <Link to="/detail-kamar/2" style={{ textDecoration: 'none', color: 'white' }}>
+              <Link to="/pesan-kamar/2" style={{ textDecoration: 'none', color: 'white' }}>
                 Pesan Sekarang
               </Link>
             </ButtonOrange>
@@ -296,7 +296,7 @@ const Body = () => {
               Kemudahan akses ke semua layanan ini akan memastikan liburan Anda benar-benar berkesan dan tak terlupakan.
             </Deskripsi>
             <ButtonOrange>
-              <Link to="/detail-kamar/3" style={{ textDecoration: 'none', color: 'white' }}>
+              <Link to="/pesan-kamar/3" style={{ textDecoration: 'none', color: 'white' }}>
                 Pesan Sekarang
               </Link>
             </ButtonOrange>
