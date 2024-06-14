@@ -76,7 +76,7 @@ const Room = () => {
                     to={`/pesan-kamar/${room.room_id}`}
                     style={{ textDecoration: "none", color: "black" }}
                   >
-                    Baca Selengkapnya
+                    Booking
                   </Link>
                 </b>
               </button>
