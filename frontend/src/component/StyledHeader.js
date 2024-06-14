@@ -96,15 +96,28 @@ export const LoginRegisterStyle = styled.div`
     }
   }
 
+  button {
+    margin-left: 10px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   @media (max-width: 768px) {
-    order: ${(props) => (props.isBig ? '1' : '-1')}; /* Menentukan posisi pada tampilan besar */
-    margin-right: ${(props) => (props.isBig ? '0' : '10px')}; /* Menentukan margin pada tampilan besar */
-    a {
+    order: ${(props) => (props.isBig ? '1' : '-1')};
+    margin-right: ${(props) => (props.isBig ? '0' : '10px')};
+    a,
+    button {
       color: white;
     }
   }
 `;
-
+ 
 export const ToggleMenu = styled.div`
   display: none;
   cursor: pointer;

@@ -33,7 +33,7 @@ const Profile = () => {
         </div>
         <ProfileContainer>
             <ProfileLeft>
-                <div style={{ position: 'relative', width: '230px', height: '230px', borderRadius: '50%', overflow: 'hidden', backgroundColor: '#ccc' }}>
+                <div style={{ position: 'relative', width: '180px', height: '180px', borderRadius: '50%', overflow: 'hidden', backgroundColor: '#ccc' }}>
                     <ProfileImage id="profileImage" src={profileImage} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     <FontAwesomeIcon icon={faCamera} style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: '24px', color: '#fff' }} />
                 </div>

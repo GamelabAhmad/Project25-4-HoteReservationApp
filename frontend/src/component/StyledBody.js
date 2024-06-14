@@ -206,7 +206,6 @@ export const Deskripsi = styled.div`
 `;
 
 export const AboutStyleWhite = styled.section`
-<<<<<<< HEAD
   display: flex;
   align-items: center;
   justify-content: left;
@@ -217,19 +216,9 @@ export const AboutStyleWhite = styled.section`
   @media (max-width: 768px) {
     justify-content: center;
   }
-=======
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    background-color: #f0f0f0;
-    padding-bottom: 60px;
-    margin-bottom: 50px;
-    border-radius: 20px;
->>>>>>> d84db1142e25bc5a074260f694a01f04a1d2cf5c
 `;
 
 export const AboutImg = styled.div`
-<<<<<<< HEAD
   width: 50%;
   box-sizing: border-box;
   text-align: left;
@@ -242,17 +231,6 @@ export const AboutImg = styled.div`
     @media (max-width: 768px) {
       width: 100%;
       height: auto;
-=======
-    width: 50%;
-    box-sizing: border-box;
-    text-align: center;
-
-    img {
-        width: 700px;
-        height: 470px;
-        border-radius: 20px;
-        margin-top:50px;
->>>>>>> d84db1142e25bc5a074260f694a01f04a1d2cf5c
     }
   }
 `;
@@ -270,7 +248,6 @@ export const AboutStyle = styled.div`
 `;
 
 export const Price = styled.h2`
-<<<<<<< HEAD
   color: black;
   font-size: 1.5rem;
   margin-top: 25px;
@@ -287,11 +264,6 @@ export const Price = styled.h2`
 export const DollarSign = styled.span`
   color: orange;
   font-size: 40px;
-=======
-    color: black; /* warna lainnya disesuaikan */
-    font-size: 1.5rem; /* Adjust as needed */
-    margin-top: 50px;
->>>>>>> d84db1142e25bc5a074260f694a01f04a1d2cf5c
 `;
 
 export const AboutText = styled.div`
@@ -345,21 +317,19 @@ export const AboutStyleYellow = styled.section`
 export const AboutBody = styled.div`
   text-align: justify;
   font-size: 20px;
-  background-color: putih;
+  background-color: white;
   padding: 0;
-  margin-bottom: 0px;
-  padding-right: 250px;
-  padding-left: 250px;
+  margin-bottom: 0;
+  padding-right: 25px;
+  padding-left: 25px;
   margin-top: 40px;
 
   h1 {
     font-size: 3rem;
     margin-bottom: 25px;
     text-align: center;
-    width: 100%;
-    margin-top: 20px;
-    display: inline-block;
     border-bottom: 4px solid black;
+    padding-bottom: 10px;
 
     @media (max-width: 768px) {
       font-size: 2.5rem;
@@ -372,34 +342,33 @@ export const AboutBody = styled.div`
 
   .container {
     text-align: center;
-    width: 18%;
+    width: 100%;
 
-    @media (max-width: 768px) {
-      width: 25%;
+    @media (min-width: 768px) {
+      max-width: 768px;
+      margin: 0 auto;
     }
 
-    @media (max-width: 480px) {
-      width: 35%;
+    @media (min-width: 992px) {
+      max-width: 992px;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 1200px;
     }
   }
 
   p {
-    font-size: 23px;
-    padding-right: 225px;
-    padding-left: 225px;
-    margin-bottom: 50px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; 
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.6;
 
     @media (max-width: 768px) {
-      font-size: 20px;
-      padding-right: 100px;
-      padding-left: 100px;
+      font-size: 16px;
     }
 
     @media (max-width: 480px) {
-      font-size: 18px;
-      padding-right: 50px;
-      padding-left: 50px;
+      font-size: 14px;
     }
   }
 `;
