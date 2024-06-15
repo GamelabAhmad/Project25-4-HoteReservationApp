@@ -58,9 +58,6 @@ const Room = () => {
                 <Price className="amount" style={{ marginRight: "5px" }}>
                   {room.price}
                 </Price>
-                <span className="pernight" style={{ color: "black" }}>
-                  /Malam
-                </span>
               </span>
               <div className="deskripsi">
                 <div className="kiri">

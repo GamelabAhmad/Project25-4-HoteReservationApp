@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 
 const Container = styled.div`
   max-width: 800px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
 
 const Title = styled.h2`
   text-align: center;
   margin-bottom: 20px;
-  font-size: 24px;
-  color: #333;
 `;
 
 const Form = styled.form`
@@ -23,17 +22,13 @@ const Form = styled.form`
 `;
 
 const Label = styled.label`
-  margin-bottom: 5px;
-  font-size: 16px;
-  color: #555;
+  margin-bottom: 10px;
 `;
 
 const Input = styled.input`
-  padding: 10px;
+  padding: 8px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
 `;
 
 const FileInput = styled.input`
@@ -47,23 +42,16 @@ const Button = styled.button`
   color: white;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
 
   &:hover {
     background-color: #0056b3;
   }
 `;
 
-const TextArea = styled.textarea`
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-  font-size: 16px;
-`;
-
-const AddProduct = () => {
+const EditKamar = () => {
+  const { id } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [roomName, setRoomName] = useState('');
   const [price, setPrice] = useState('');
   const [size, setSize] = useState('');
@@ -71,6 +59,29 @@ const AddProduct = () => {
   const [bedType, setBedType] = useState('');
   const [services, setServices] = useState('');
   const [image, setImage] = useState(null);
+  const [existingImage, setExistingImage] = useState('');
+
+  useEffect(() => {
+    const fetchRoom = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/api/rooms/${id}`);
+        const roomData = response.data;
+        setRoomName(roomData.room_name);
+        setPrice(roomData.price);
+        setSize(roomData.ukuran);
+        setCapacity(roomData.kapasitas);
+        setBedType(roomData.tempat_tidur);
+        setServices(roomData.layanan.join(', ')); // Convert array to string for textarea
+        setExistingImage(roomData.image);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+
+    fetchRoom();
+  }, [id]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -87,21 +98,29 @@ const AddProduct = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/api/rooms', formData, {
+      await axios.put(`http://localhost:5000/api/rooms/${id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
-      alert('Data produk dikirim');
-      console.log(response.data);
+      alert('Data kamar diperbarui');
+      // Redirect back to products page using Link
     } catch (error) {
-      console.error('Error uploading data:', error);
+      console.error('Error updating data:', error);
     }
   };
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
     <Container>
-      <Title>Form Penambahan Kamar</Title>
+      <Title>Edit Kamar</Title>
       <Form onSubmit={handleSubmit}>
         <Label htmlFor="room_name">Nama Kamar:</Label>
         <Input 
@@ -125,44 +144,44 @@ const AddProduct = () => {
           onChange={(e) => setPrice(e.target.value)}
         />
 
-        <Label htmlFor="ukuran">Ukuran:</Label>
+        <Label htmlFor="size">Ukuran:</Label>
         <Input 
           type="text" 
-          id="ukuran" 
-          name="ukuran" 
+          id="size" 
+          name="size" 
           placeholder="Ukuran" 
           required 
           value={size}
           onChange={(e) => setSize(e.target.value)}
         />
 
-        <Label htmlFor="kapasitas">Kapasitas:</Label>
+        <Label htmlFor="capacity">Kapasitas:</Label>
         <Input 
           type="text" 
-          id="kapasitas" 
-          name="kapasitas" 
+          id="capacity" 
+          name="capacity" 
           placeholder="Jumlah Orang" 
           required 
           value={capacity}
           onChange={(e) => setCapacity(e.target.value)}
         />
 
-        <Label htmlFor="tempat_tidur">Tempat Tidur:</Label>
+        <Label htmlFor="bedType">Tempat Tidur:</Label>
         <Input 
           type="text" 
-          id="tempat_tidur" 
-          name="tempat_tidur" 
+          id="bedType" 
+          name="bedType" 
           placeholder="Jenis Kasur" 
           required 
           value={bedType}
           onChange={(e) => setBedType(e.target.value)}
         />
 
-        <Label htmlFor="layanan">Layanan:</Label>
-        <TextArea 
-          id="layanan" 
-          name="layanan" 
-          rows="4" 
+        <Label htmlFor="services">Layanan:</Label>
+        <Input 
+          type="text" 
+          id="services" 
+          name="services" 
           placeholder="Layanan" 
           required 
           value={services}
@@ -170,6 +189,15 @@ const AddProduct = () => {
         />
 
         <Label htmlFor="image">Gambar:</Label>
+        {existingImage && (
+          <div>
+            <img 
+              src={`http://localhost:5000/uploads/${existingImage}`} 
+              alt="Gambar Kamar" 
+              style={{ width: '100%', marginBottom: '10px' }}
+            />
+          </div>
+        )}
         <FileInput 
           type="file" 
           id="image" 
@@ -178,10 +206,11 @@ const AddProduct = () => {
           onChange={(e) => setImage(e.target.files[0])}
         />
 
-        <Button type="submit">Tambahkan</Button>
+        <Button type="submit">Perbarui</Button>
+        <Link to="/products">Kembali ke Produk</Link>
       </Form>
     </Container>
   );
 };
 
-export default AddProduct;
+export default EditKamar;
