@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Header from "./page/Header";
 import Footer from "./page/Footer";
 import Kontak from "./page/Kontak";
@@ -37,6 +32,7 @@ const App = () => {
     <div className="App">
       {!shouldHideHeaderFooter && <Header />}
       <Routes>
+        <Route path="/" element={<Navigate to="/body" replace />} />
         <Route path="/Body" element={<Body />} />
         <Route path="/tentang" element={<Tentang />} />
         <Route path="/ruang" element={<Room />} />
@@ -57,11 +53,4 @@ const App = () => {
     </div>
   );
 };
-
-const WrappedApp = () => (
-  <Router>
-    <App />
-  </Router>
-);
-
-export default WrappedApp;
+export default App;
