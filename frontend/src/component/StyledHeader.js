@@ -54,6 +54,11 @@ export const UlStyle = styled.ul`
 
 export const LiStyle = styled.li`
   margin: 0 10px;
+  padding: 10px 15px;
+
+  &:hover {
+    background-color: silver;
+  }
 
   @media (max-width: 768px) {
     width: 100%;
@@ -117,7 +122,7 @@ export const LoginRegisterStyle = styled.div`
     }
   }
 `;
- 
+
 export const ToggleMenu = styled.div`
   display: none;
   cursor: pointer;
@@ -137,7 +142,7 @@ export const ToggleMenu = styled.div`
 
 export const SubMenu = styled.ul`
   position: absolute;
-  top: 100%;
+  top: 110%;
   left: 0;
   background-color: #333;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -148,14 +153,20 @@ export const SubMenu = styled.ul`
   list-style: none;
 
   &:hover {
-      color: #0D99FF;
+    color: #0D99FF;
   }
-      
+
   ${LiStyle} {
-    padding-top: 20px;
     padding: 10px 20px;
+    width: 100%;
+
     &:hover {
-      background-color: #333;
+      background-color: silver;
+      border-radius: 8px;
     }
+  }
+
+  @media (max-width: 768px) {
+    width: 150px; /* Misalnya, atur lebar submenu untuk tampilan mobile */
   }
 `;

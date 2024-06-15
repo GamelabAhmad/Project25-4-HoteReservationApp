@@ -24,12 +24,26 @@ import {
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import Swal from 'sweetalert2';
 
 const Login = () => {
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState(null);
   const navigate = useNavigate();
+
+  // Fungsi untuk menampilkan notifikasi menggunakan SweetAlert2
+  const showNotification = (message, type) => {
+    Swal.fire({
+      text: message,
+      icon: type,
+      timer: 3000, // Menutup otomatis setelah 3 detik
+      timerProgressBar: true,
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false
+    });
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -52,21 +66,6 @@ const Login = () => {
     }
   };
 
-  // Fungsi untuk menampilkan notifikasi
-  const showNotification = (message, type) => {
-    if ("Notification" in window) {
-      if (Notification.permission === "granted") {
-        new Notification(message);
-      } else if (Notification.permission !== "denied") {
-        Notification.requestPermission().then((permission) => {
-          if (permission === "granted") {
-            new Notification(message);
-          }
-        });
-      }
-    }
-  };
-
   const responseGoogleSuccess = async (response) => {
     console.log("Login Google berhasil:", response);
     try {
@@ -76,7 +75,8 @@ const Login = () => {
       );
       localStorage.setItem("token", googleResponse.data.token);
       setLoginStatus(true);
-      navigate("/home.js"); // Arahkan ke halaman home
+      navigate("/home"); // Arahkan ke halaman home
+      showNotification("Login Google Berhasil", "success");
     } catch (error) {
       console.error("Google login error:", error);
       setLoginStatus(false);
