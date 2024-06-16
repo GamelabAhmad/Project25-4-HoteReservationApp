@@ -53,7 +53,6 @@ export const UlStyle = styled.ul`
 `;
 
 export const LiStyle = styled.li`
-  margin: 0 10px;
   padding: 10px 15px;
 
   &:hover {

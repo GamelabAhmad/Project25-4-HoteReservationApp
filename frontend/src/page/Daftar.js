@@ -12,6 +12,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import Swal from 'sweetalert2';
 
 const Daftar = () => {
   const [formData, setFormData] = useState({
@@ -72,19 +73,17 @@ const Daftar = () => {
     showNotification("Login dengan Google gagal", "error");
   };
 
-  // Fungsi untuk menampilkan notifikasi
+  // Fungsi untuk menampilkan notifikasi menggunakan SweetAlert2
   const showNotification = (message, type) => {
-    if ("Notification" in window) {
-      if (Notification.permission === "granted") {
-        new Notification(message);
-      } else if (Notification.permission !== "denied") {
-        Notification.requestPermission().then((permission) => {
-          if (permission === "granted") {
-            new Notification(message);
-          }
-        });
-      }
-    }
+    Swal.fire({
+      text: message,
+      icon: type,
+      timer: 3000, // Menutup otomatis setelah 3 detik
+      timerProgressBar: true,
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false
+    });
   };
 
   return (
@@ -101,7 +100,7 @@ const Daftar = () => {
                 disabled={renderProps.disabled}
               >
                 <img
-                  src="/images/googele.png"
+                  src="/images/google.png"
                   alt="Google Logo"
                   style={{ width: "20px", marginRight: "10px" }}
                 />
