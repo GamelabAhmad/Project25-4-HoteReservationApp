@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-// Register User
+// Register Users
 exports.register = async (req, res) => {
   const { full_name, email, phone_number, password } = req.body;
   try {

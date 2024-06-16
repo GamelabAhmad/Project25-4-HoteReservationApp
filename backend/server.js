@@ -8,6 +8,7 @@ const multer = require("multer");
 const path = require("path");
 const bookingRoutes = require("./routes/bookingRoutes");
 const roomRoutes = require("./routes/roomRoutes"); // Menambahkan import untuk roomRoutes
+const profileRoutes = require("./routes/profileRoutes"); // Import profileRoutes
 
 dotenv.config();
 
@@ -33,6 +34,7 @@ app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/auth", require("./routes/googleAuthRoutes"));
 app.use("/api", roomRoutes); // Menggunakan roomRoutes di endpoint '/api'
 app.use("/api", bookingRoutes);
+app.use("/api", profileRoutes); // Routes untuk profil pengguna
 
 app.post("/api/google-login", async (req, res) => {
   const { tokenId } = req.body;
