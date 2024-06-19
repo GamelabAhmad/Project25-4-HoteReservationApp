@@ -113,7 +113,7 @@ const Products = () => {
                   <TableRow key={room.room_id}>
                     <TableCell><ProductImage src={`http://localhost:5000/uploads/${room.image}`} alt="Gambar Kamar" /></TableCell>
                     <TableCell>{room.room_name}</TableCell>
-                    <TableCell>{`IDR ${room.price.toLocaleString()}`}</TableCell>
+                    <TableCell>{`${room.price.toLocaleString()}`}</TableCell>
                     <TableCell>{room.ukuran}</TableCell>
                     <TableCell>{room.kapasitas}</TableCell>
                     <TableCell>{room.tempat_tidur}</TableCell>
