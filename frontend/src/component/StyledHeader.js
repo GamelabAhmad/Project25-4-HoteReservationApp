@@ -56,7 +56,7 @@ export const LiStyle = styled.li`
   padding: 10px 15px;
 
   &:hover {
-    background-color: silver;
+    background-color: #333;
   }
 
   @media (max-width: 768px) {
@@ -160,7 +160,7 @@ export const SubMenu = styled.ul`
     width: 100%;
 
     &:hover {
-      background-color: silver;
+      background-color: #333;
       border-radius: 8px;
     }
   }
