@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate, matchPath } from "react-router-dom";
 import Header from "./page/Header";
 import Footer from "./page/Footer";
 import Kontak from "./page/Kontak";
@@ -26,9 +26,20 @@ import "./css/animate.css";
 
 const App = () => {
   const location = useLocation();
-  const noHeaderFooterPaths = ["/masuk", "/daftar", "/Lupapass", "/newpass", "/admin", "/produk", "/tambah-kamar", "/profileAdmin"]; // Add '/newpass' to the paths that hide Header and Footer
-  const shouldHideHeaderFooter = noHeaderFooterPaths.includes(
-    location.pathname
+  const noHeaderFooterPaths = [
+    "/masuk", 
+    "/daftar", 
+    "/lupapass", 
+    "/newpass", 
+    "/admin", 
+    "/produk", 
+    "/tambah-kamar", 
+    "/profileAdmin", 
+    "/edit-kamar/:id",
+  ];
+
+  const shouldHideHeaderFooter = noHeaderFooterPaths.some(path =>
+    matchPath(path, location.pathname)
   );
 
   return (
@@ -36,7 +47,7 @@ const App = () => {
       {!shouldHideHeaderFooter && <Header />}
       <Routes>
         <Route path="/" element={<Navigate to="/body" replace />} />
-        <Route path="/Body" element={<Body />} />
+        <Route path="/body" element={<Body />} />
         <Route path="/tentang" element={<Tentang />} />
         <Route path="/ruang" element={<Room />} />
         <Route path="/kontak" element={<Kontak />} />
@@ -44,19 +55,19 @@ const App = () => {
         <Route path="/produk" element={<Produk />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/tambah-kamar" element={<TambahKamar />} />
-        <Route path="/edit-kamar" element={<EditKamar />} />
+        <Route path="/edit-kamar/:id" element={<EditKamar />} />
         <Route path="/pesan-kamar/:id" element={<Booking />} />
         <Route path="/masuk" element={<Login />} />
         <Route path="/daftar" element={<Daftar />} />
         <Route path="/lupapass" element={<Lupapass />} />
-        <Route path="/newpass" element={<Newpass />} />{" "}
-        <Route path="/Home" element={<Home />} />
-        {/* Add the Newpass route */}
-        <Route path="/Profile" element={<Profile />} />
+        <Route path="/newpass" element={<Newpass />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/profileAdmin" element={<ProfileAdmin />} />
       </Routes>
       {!shouldHideHeaderFooter && <Footer />}
     </div>
   );
 };
+
 export default App;

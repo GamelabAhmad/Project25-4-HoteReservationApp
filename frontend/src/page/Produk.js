@@ -54,11 +54,6 @@ const Products = () => {
     // alert(`Hapus kamar dengan ID: ${id}`);
   };
 
-  const handleEdit = (id) => {
-    // Implementasi untuk mengedit produk
-    // alert(`Edit kamar dengan ID: ${id}`);
-  };
-
   return (
     <StyledAdmin>
       <header className="navbar">
@@ -125,8 +120,8 @@ const Products = () => {
                     <TableCell>{room.layanan || "-"}</TableCell>
                     <TableCell>
                       <ActionButton delete onClick={() => handleDelete(room.room_id)}>Delete</ActionButton>
-                      <ActionButton onClick={() => handleEdit(room.room_id)}>
-                        <Link to="/edit-kamar" style={{ textDecoration: "none", color: "white" }}>
+                      <ActionButton>
+                        <Link to={`/edit-kamar/${room.room_id}`} style={{ textDecoration: "none", color: "white" }}>
                           Edit
                         </Link>
                       </ActionButton>
