@@ -165,16 +165,6 @@ const Header = () => {
                   <AStyle>Admin</AStyle>
                 </Link>
               </LiStyle>
-              <LiStyle>
-                <Link to="/produk" style={{ textDecoration: "none" }} onClick={handleNavClick}>
-                  <AStyle>Produk</AStyle>
-                </Link>
-              </LiStyle>
-              <LiStyle>
-                <Link to="/categories" style={{ textDecoration: "none" }} onClick={handleNavClick}>
-                  <AStyle>Categories</AStyle>
-                </Link>
-              </LiStyle>
             </SubMenu>
           )}
         </LiStyle>
