@@ -161,8 +161,8 @@ const Header = () => {
           {isMasterOpen && (
             <SubMenu style={{ backgroundColor: '#333', borderRadius: '8px' }}>
               <LiStyle>
-                <Link to="/users" style={{ textDecoration: "none" }} onClick={handleNavClick}>
-                  <AStyle>Users</AStyle>
+                <Link to="/admin" style={{ textDecoration: "none" }} onClick={handleNavClick}>
+                  <AStyle>Admin</AStyle>
                 </Link>
               </LiStyle>
               <LiStyle>

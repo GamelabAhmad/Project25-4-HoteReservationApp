@@ -67,7 +67,7 @@ export const LiStyle = styled.li`
 `;
 
 export const AStyle = styled.a`
-  color: #fff;
+  color: black;
   text-decoration: none;
   font-size: 20px;
 
@@ -160,7 +160,7 @@ export const SubMenu = styled.ul`
     width: 100%;
 
     &:hover {
-      background-color: #333;
+      background-color: silver;
       border-radius: 8px;
     }
   }
