@@ -7,11 +7,11 @@ dotenv.config();
 
 // Register Users
 exports.register = async (req, res) => {
-  const { full_name, email, phone_number, password } = req.body;
+  const { full_name, email, phone_number, password, role } = req.body;
   try {
     let user = await User.findOne({ where: { email } });
     if (user) {
-      return res.status(400).json({ msg: "User already exists" });
+      return res.status(400).json({ msg: "User sudah terdaftar" });
     }
     const hashedPassword = await bcrypt.hash(password, 10);
     user = await User.create({
@@ -19,8 +19,9 @@ exports.register = async (req, res) => {
       email,
       phone_number,
       password: hashedPassword,
+      role,
     });
-    const payload = { user: { user_id: user.user_id } };
+    const payload = { user: { user_id: user.user_id, role: user.role } };
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
@@ -43,7 +44,7 @@ exports.login = async (req, res) => {
     if (!isMatch) {
       return res.status(400).json({ msg: "Invalid Credentials" });
     }
-    const payload = { user: { user_id: user.user_id } };
+    const payload = { user: { user_id: user.user_id, role: user.role } };
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });

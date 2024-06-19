@@ -12,15 +12,17 @@ import {
   ToggleMenu,
   SubMenu,
 } from "../component/StyledHeader";
+import { jwtDecode } from "jwt-decode"; // Correct named import
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isBig, setIsBig] = useState(window.innerWidth > 768);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isMasterOpen, setIsMasterOpen] = useState(false); // State untuk submenu
-  const [isProfileOpen, setIsProfileOpen] = useState(false); // State untuk profil dropdown
-  const [buttonText, setButtonText] = useState("Akun"); // State untuk teks tombol
+  const [isMasterOpen, setIsMasterOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [buttonText, setButtonText] = useState("Akun");
+  const [role, setRole] = useState("user"); // State untuk peran pengguna
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -48,9 +50,12 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    // Check if the user is authenticated by checking the presence of a token
     const token = localStorage.getItem("token");
-    setIsAuthenticated(!!token);
+    if (token) {
+      const decoded = jwtDecode(token);
+      setIsAuthenticated(true);
+      setRole(decoded.user.role); // Set state role sesuai dengan peran pengguna dari token
+    }
   }, []);
 
   const handleToggle = () => {
@@ -62,22 +67,23 @@ const Header = () => {
   };
 
   const handleProfileToggle = () => {
-    setIsProfileOpen(!isProfileOpen); // Toggle state untuk membuka/tutup dropdown profil
+    setIsProfileOpen(!isProfileOpen);
   };
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     setIsAuthenticated(false);
+    setRole("user"); // Reset role ke "user" setelah logout
     navigate("/");
   };
 
   const handleProfileClick = () => {
-    setIsProfileOpen(false); // Tutup dropdown saat opsi di dalamnya dipilih
-    setButtonText("Profil"); // Ubah teks tombol menjadi Profil
+    setIsProfileOpen(false);
+    setButtonText("Profil");
   };
 
   const handleNavClick = () => {
-    setButtonText("Akun"); // Ubah teks tombol kembali ke Akun saat navbar lain diklik
+    setButtonText("Akun");
   };
 
   return (
@@ -91,7 +97,7 @@ const Header = () => {
         <RightContainer isBig={isBig}>
           <LoginRegisterStyle isBig={isBig}>
             {isAuthenticated ? (
-              <div style={{ position: 'relative' }}>
+              <div style={{ position: "relative" }}>
                 <button
                   onClick={handleProfileToggle}
                   style={{
@@ -103,15 +109,26 @@ const Header = () => {
                 >
                   {buttonText}
                 </button>
-                {/* Dropdown Profil */}
                 {isProfileOpen && (
-                  <SubMenu style={{ backgroundColor: 'white', borderRadius: '8px' }}>
-                    <LiStyle style={{ width: '100%' }}>
-                      <Link to="/profile" onClick={handleProfileClick} style={{ textDecoration: "none", color: "black", display: "block", width: '100%', padding: "10px 15px" }}>
+                  <SubMenu
+                    style={{ backgroundColor: "white", borderRadius: "8px" }}
+                  >
+                    <LiStyle style={{ width: "100%" }}>
+                      <Link
+                        to="/profile"
+                        onClick={handleProfileClick}
+                        style={{
+                          textDecoration: "none",
+                          color: "black",
+                          display: "block",
+                          width: "100%",
+                          padding: "10px 15px",
+                        }}
+                      >
                         Profil
                       </Link>
                     </LiStyle>
-                    <LiStyle style={{ width: '100%' }}>
+                    <LiStyle style={{ width: "100%" }}>
                       <button
                         onClick={handleLogout}
                         style={{
@@ -146,40 +163,69 @@ const Header = () => {
       </LeftContainer>
       <UlStyle isOpen={isOpen}>
         <LiStyle>
-          <Link to="/body" style={{ textDecoration: "none" }} onClick={handleNavClick}>
+          <Link
+            to="/body"
+            style={{ textDecoration: "none" }}
+            onClick={handleNavClick}
+          >
             <AStyle>Beranda</AStyle>
           </Link>
         </LiStyle>
         <LiStyle>
-          <Link to="/ruang" style={{ textDecoration: "none" }} onClick={handleNavClick}>
+          <Link
+            to="/ruang"
+            style={{ textDecoration: "none" }}
+            onClick={handleNavClick}
+          >
             <AStyle>Kamar</AStyle>
           </Link>
         </LiStyle>
-        {/* Dropdown Data Master */}
-        <LiStyle onClick={handleMasterToggle} style={{ position: 'relative', color: 'white' }}>
-          <AStyle>Data Master</AStyle>
-          {isMasterOpen && (
-            <SubMenu style={{ backgroundColor: '#333', borderRadius: '8px' }}>
-              <LiStyle>
-                <Link to="/admin" style={{ textDecoration: "none" }} onClick={handleNavClick}>
-                  <AStyle>Admin</AStyle>
-                </Link>
-              </LiStyle>
-            </SubMenu>
-          )}
-        </LiStyle>
+        {/* Tampilkan "Data Master" hanya jika role adalah "admin" atau "super_admin" */}
+        {role === "admin" || role === "super_admin" ? (
+          <LiStyle
+            onClick={handleMasterToggle}
+            style={{ position: "relative", color: "white" }}
+          >
+            <AStyle>Data Master</AStyle>
+            {isMasterOpen && (
+              <SubMenu style={{ backgroundColor: "#333", borderRadius: "8px" }}>
+                <LiStyle>
+                  <Link
+                    to="/admin"
+                    style={{ textDecoration: "none", color: "white" }}
+                    onClick={handleNavClick}
+                  >
+                    <AStyle>Admin</AStyle>
+                  </Link>
+                </LiStyle>
+              </SubMenu>
+            )}
+          </LiStyle>
+        ) : null}
         <LiStyle>
-          <Link to="/tentang" style={{ textDecoration: "none" }} onClick={handleNavClick}>
+          <Link
+            to="/tentang"
+            style={{ textDecoration: "none" }}
+            onClick={handleNavClick}
+          >
             <AStyle>Tentang</AStyle>
           </Link>
         </LiStyle>
         <LiStyle>
-          <Link to="/pesanan" style={{ textDecoration: "none" }} onClick={handleNavClick}>
+          <Link
+            to="/pesanan"
+            style={{ textDecoration: "none" }}
+            onClick={handleNavClick}
+          >
             <AStyle>Pesanan</AStyle>
           </Link>
         </LiStyle>
         <LiStyle>
-          <Link to="/kontak" style={{ textDecoration: "none" }} onClick={handleNavClick}>
+          <Link
+            to="/kontak"
+            style={{ textDecoration: "none" }}
+            onClick={handleNavClick}
+          >
             <AStyle>Kontak</AStyle>
           </Link>
         </LiStyle>
@@ -189,4 +235,3 @@ const Header = () => {
 };
 
 export default Header;
-
