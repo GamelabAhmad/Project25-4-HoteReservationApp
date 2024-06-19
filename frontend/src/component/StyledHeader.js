@@ -56,7 +56,7 @@ export const LiStyle = styled.li`
   padding: 10px 15px;
 
   &:hover {
-    background-color: silver;
+    background-color: #333;
   }
 
   @media (max-width: 768px) {
@@ -67,7 +67,7 @@ export const LiStyle = styled.li`
 `;
 
 export const AStyle = styled.a`
-  color: #fff;
+  color: black;
   text-decoration: none;
   font-size: 20px;
 

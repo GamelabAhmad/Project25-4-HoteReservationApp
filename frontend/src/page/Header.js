@@ -159,20 +159,10 @@ const Header = () => {
         <LiStyle onClick={handleMasterToggle} style={{ position: 'relative', color: 'white' }}>
           <AStyle>Data Master</AStyle>
           {isMasterOpen && (
-            <SubMenu style={{ backgroundColor: 'white', borderRadius: '8px' }}>
+            <SubMenu style={{ backgroundColor: '#333', borderRadius: '8px' }}>
               <LiStyle>
-                <Link to="/users" style={{ textDecoration: "none" }} onClick={handleNavClick}>
-                  <AStyle>Users</AStyle>
-                </Link>
-              </LiStyle>
-              <LiStyle>
-                <Link to="/produk" style={{ textDecoration: "none" }} onClick={handleNavClick}>
-                  <AStyle>Produk</AStyle>
-                </Link>
-              </LiStyle>
-              <LiStyle>
-                <Link to="/categories" style={{ textDecoration: "none" }} onClick={handleNavClick}>
-                  <AStyle>Categories</AStyle>
+                <Link to="/admin" style={{ textDecoration: "none" }} onClick={handleNavClick}>
+                  <AStyle>Admin</AStyle>
                 </Link>
               </LiStyle>
             </SubMenu>
