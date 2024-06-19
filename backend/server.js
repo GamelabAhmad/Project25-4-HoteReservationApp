@@ -6,9 +6,11 @@ const { OAuth2Client } = require("google-auth-library");
 const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
+const bodyParser = require("body-parser");
 const bookingRoutes = require("./routes/bookingRoutes");
 const roomRoutes = require("./routes/roomRoutes"); // Menambahkan import untuk roomRoutes
 const profileRoutes = require("./routes/profileRoutes"); // Import profileRoutes
+const paymentRoutes = require("./routes/paymentRoutes"); // Menambahkan import untuk paymentRoutes
 
 dotenv.config();
 
@@ -16,6 +18,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const storage = multer.diskStorage({
@@ -35,6 +38,7 @@ app.use("/api/auth", require("./routes/googleAuthRoutes"));
 app.use("/api", roomRoutes); // Menggunakan roomRoutes di endpoint '/api'
 app.use("/api", bookingRoutes);
 app.use("/api", profileRoutes); // Routes untuk profil pengguna
+app.use("/api", paymentRoutes); // Menambahkan paymentRoutes ke endpoint '/api'
 
 app.post("/api/google-login", async (req, res) => {
   const { tokenId } = req.body;
