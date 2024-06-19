@@ -24,7 +24,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [identifier, setIdentifier] = useState("");
@@ -40,8 +40,8 @@ const Login = () => {
       timer: 3000, // Menutup otomatis setelah 3 detik
       timerProgressBar: true,
       toast: true,
-      position: 'top-end',
-      showConfirmButton: false
+      position: "top-end",
+      showConfirmButton: false,
     });
   };
 
@@ -137,7 +137,6 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <SubmitButton type="submit">Masuk</SubmitButton>
-              
             </Form>
             <Flex>
               <FlexKanan>

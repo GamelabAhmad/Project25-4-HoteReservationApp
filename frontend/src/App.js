@@ -11,8 +11,8 @@ import Daftar from "./page/Daftar";
 import Booking from "./page/Booking";
 import Pesanan from "./page/Pesanan";
 import EditKamar from "./page/EditKamar";
-import Produk from './page/Produk'; // Import komponen Products
-import TambahKamar from './page/TambahKamar'; // Import komponen Products
+import Produk from "./page/Produk"; // Import komponen Products
+import TambahKamar from "./page/TambahKamar"; // Import komponen Products
 import Lupapass from "./page/Lupapass";
 import Newpass from "./page/Newpass"; // Import the Newpass component
 import Home from "./page/Home";
