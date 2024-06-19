@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 
-const PaymentPage = () => {
+const Payment = () => {
   const location = useLocation();
   const bookingData = location.state || {};
   const { name, email, checkInDate, checkOutDate, roomType } = bookingData;
@@ -59,14 +59,12 @@ const PaymentPage = () => {
 
   return (
     <div>
-      <h2>Halaman Pembayaran</h2>
       {token && (
         <div>
-          <p>Token Transaksi: {token}</p>
         </div>
       )}
     </div>
   );
 };
 
-export default PaymentPage;
+export default Payment;

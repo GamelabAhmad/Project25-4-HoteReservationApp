@@ -40,6 +40,7 @@ const App = () => {
     "/newpass",
     "/admin",
     "/produk",
+    "/payment",
     "/tambah-kamar",
     "/profileAdmin",
     "/edit-kamar/:id",
