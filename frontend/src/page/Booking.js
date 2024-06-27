@@ -1,4 +1,3 @@
-// src/components/Booking.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -41,17 +40,7 @@ const Booking = () => {
       });
       if (response.ok) {
         console.log("Booking berhasil disimpan");
-        setBookingData({
-          name: "",
-          email: "",
-          checkInDate: "",
-          checkOutDate: "",
-          roomType: "",
-          specialRequests: "",
-          userId: 1, // Mengubah userId menjadi null kembali setelah berhasil disimpan
-          roomId: 1, // Mengubah roomId menjadi null kembali setelah berhasil disimpan
-        });
-        navigate("/payment"); // Arahkan ke halaman pembayaran
+        navigate("/payment", { state: bookingData }); // Arahkan ke halaman pembayaran dengan data booking
       } else {
         console.log("Gagal menyimpan booking");
       }
